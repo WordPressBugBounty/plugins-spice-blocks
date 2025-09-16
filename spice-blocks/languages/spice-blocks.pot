@@ -1,0 +1,1815 @@
+# Spice Blocks
+# Copyright 2022 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Blank "
+"WordPress Pot v1.0.0\n"
+"Report-Msgid-Bugs-To: Translator "
+"Name <translations@example.com>\n"
+"POT-Creation-Date: 2025-07-18 "
+"18:53+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Your Name "
+"<you@example.com>\n"
+"Language-Team: Your Team "
+"<translations@example.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; "
+"charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; "
+"plural=n != 1;\n"
+"X-Textdomain-Support: yesX-"
+"Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/view-free.php:12
+msgid "20+Basic</span>Blocks"
+msgstr ""
+
+#: admin/view-free.php:15
+msgid " Spice Blocks"
+msgstr ""
+
+#: admin/view-free.php:20
+#: admin/view-premium.php:20
+msgid "Creative Design"
+msgstr ""
+
+#: admin/view-free.php:24
+#: admin/view-premium.php:24
+msgid "Browser Compatible"
+msgstr ""
+
+#: admin/view-free.php:28
+#: admin/view-premium.php:28
+msgid "FSE Compatible"
+msgstr ""
+
+#: admin/view-free.php:32
+#: admin/view-premium.php:32
+msgid "Responsive Design"
+msgstr ""
+
+#: admin/view-free.php:36
+#: admin/view-premium.php:36
+msgid "Easy to Customize"
+msgstr ""
+
+#: admin/view-free.php:40
+#: admin/view-premium.php:40
+msgid "Friendly Support"
+msgstr ""
+
+#: admin/view-free.php:44
+msgid "20+ Blocks"
+msgstr ""
+
+#: admin/view-free.php:48
+#: admin/view-premium.php:48
+msgid "Translation Ready"
+msgstr ""
+
+#: admin/view-free.php:52
+#: admin/view-premium.php:52
+msgid "Guaranteed Support"
+msgstr ""
+
+#: admin/view-free.php:68
+#: admin/view-premium.php:68
+msgid "Love our product?"
+msgstr ""
+
+#: admin/view-free.php:69
+#: admin/view-premium.php:69
+msgid ""
+"Motivate us by giving 5 star on "
+"our profile."
+msgstr ""
+
+#: admin/view-free.php:70
+#: admin/view-premium.php:70
+msgid "Rate Us"
+msgstr ""
+
+#: admin/view-free.php:75
+#: admin/view-premium.php:75
+msgid ""
+"Still have question? Ask Us, now!"
+msgstr ""
+
+#: admin/view-free.php:76
+#: admin/view-premium.php:76
+msgid ""
+"Don't hesitate to ask any "
+"questions you have regarding our "
+"products."
+msgstr ""
+
+#: admin/view-free.php:77
+#: admin/view-premium.php:77
+msgid "Get Support"
+msgstr ""
+
+#: admin/view-free.php:83
+#: admin/view-premium.php:83
+msgid "Get More Detail"
+msgstr ""
+
+#: admin/view-free.php:84
+#: admin/view-premium.php:84
+msgid "Documentations"
+msgstr ""
+
+#: admin/view-free.php:85
+msgid "Go to Premium"
+msgstr ""
+
+#: admin/view-free.php:94
+msgid "Basic</span>Blocks"
+msgstr ""
+
+#: admin/view-free.php:97
+#: admin/view-free.php:484
+#: admin/view-premium.php:96
+#: admin/view-premium.php:471
+msgid "Stackable Blocks"
+msgstr ""
+
+#: admin/view-free.php:103
+#: admin/view-premium.php:102
+#: build/free-blocks.bundle.js:1
+msgid "Heading"
+msgstr ""
+
+#: admin/view-free.php:107
+#: admin/view-premium.php:106
+msgid ""
+"Create beautiful headings that "
+"displays in a styling layout on "
+"the webpage."
+msgstr ""
+
+#: admin/view-free.php:108
+#: admin/view-free.php:118
+#: admin/view-free.php:128
+#: admin/view-free.php:138
+#: admin/view-free.php:148
+#: admin/view-free.php:158
+#: admin/view-free.php:168
+#: admin/view-free.php:178
+#: admin/view-free.php:188
+#: admin/view-free.php:198
+#: admin/view-free.php:208
+#: admin/view-free.php:218
+#: admin/view-free.php:228
+#: admin/view-free.php:238
+#: admin/view-free.php:248
+#: admin/view-free.php:258
+#: admin/view-free.php:268
+#: admin/view-free.php:278
+#: admin/view-free.php:288
+#: admin/view-free.php:299
+#: admin/view-free.php:309
+#: admin/view-free.php:319
+#: admin/view-free.php:329
+#: admin/view-free.php:339
+#: admin/view-free.php:349
+#: admin/view-free.php:359
+#: admin/view-free.php:369
+#: admin/view-free.php:379
+#: admin/view-free.php:389
+#: admin/view-free.php:399
+#: admin/view-free.php:409
+#: admin/view-free.php:419
+#: admin/view-free.php:429
+#: admin/view-free.php:439
+#: admin/view-free.php:449
+#: admin/view-free.php:459
+#: admin/view-free.php:469
+#: admin/view-free.php:495
+#: admin/view-free.php:506
+#: admin/view-free.php:517
+#: admin/view-free.php:528
+#: admin/view-free.php:539
+#: admin/view-free.php:550
+#: admin/view-premium.php:107
+#: admin/view-premium.php:116
+#: admin/view-premium.php:125
+#: admin/view-premium.php:134
+#: admin/view-premium.php:143
+#: admin/view-premium.php:152
+#: admin/view-premium.php:161
+#: admin/view-premium.php:170
+#: admin/view-premium.php:179
+#: admin/view-premium.php:188
+#: admin/view-premium.php:197
+#: admin/view-premium.php:206
+#: admin/view-premium.php:216
+#: admin/view-premium.php:226
+#: admin/view-premium.php:236
+#: admin/view-premium.php:246
+#: admin/view-premium.php:256
+#: admin/view-premium.php:266
+#: admin/view-premium.php:276
+#: admin/view-premium.php:286
+#: admin/view-premium.php:296
+#: admin/view-premium.php:306
+#: admin/view-premium.php:316
+#: admin/view-premium.php:326
+#: admin/view-premium.php:336
+#: admin/view-premium.php:346
+#: admin/view-premium.php:356
+#: admin/view-premium.php:366
+#: admin/view-premium.php:376
+#: admin/view-premium.php:386
+#: admin/view-premium.php:396
+#: admin/view-premium.php:406
+#: admin/view-premium.php:416
+#: admin/view-premium.php:426
+#: admin/view-premium.php:436
+#: admin/view-premium.php:446
+#: admin/view-premium.php:456
+#: admin/view-premium.php:482
+#: admin/view-premium.php:493
+#: admin/view-premium.php:504
+#: admin/view-premium.php:515
+#: admin/view-premium.php:526
+#: admin/view-premium.php:537
+msgid "Get Demo"
+msgstr ""
+
+#: admin/view-free.php:114
+#: admin/view-premium.php:112
+msgid "Text Editor"
+msgstr ""
+
+#: admin/view-free.php:117
+#: admin/view-premium.php:115
+msgid ""
+"Create awesome text or paragraphs "
+"that displays in a styling layout "
+"on the webpage."
+msgstr ""
+
+#: admin/view-free.php:124
+#: admin/view-premium.php:121
+msgid "Divider"
+msgstr ""
+
+#: admin/view-free.php:127
+#: admin/view-premium.php:124
+msgid ""
+"Create beautiful divisions "
+"between blocks in a styling "
+"layout on the webpage."
+msgstr ""
+
+#: admin/view-free.php:134
+#: admin/view-premium.php:130
+msgid "Spacer"
+msgstr ""
+
+#: admin/view-free.php:137
+#: admin/view-premium.php:133
+msgid ""
+"Create colorful spacings between "
+"blocks that displays in a styling "
+"layout on the webpage."
+msgstr ""
+
+#: admin/view-free.php:144
+#: admin/view-premium.php:139
+#: build/premium-blocks.bundle.js:1
+msgid "Button"
+msgstr ""
+
+#: admin/view-free.php:147
+#: admin/view-premium.php:142
+msgid ""
+"Add classy buttons to your "
+"webpage that makes it even more "
+"classy."
+msgstr ""
+
+#: admin/view-free.php:154
+#: admin/view-premium.php:148
+msgid "Icon"
+msgstr ""
+
+#: admin/view-free.php:157
+#: admin/view-premium.php:151
+msgid ""
+"Add creative icons to your "
+"webpage in a styling layout."
+msgstr ""
+
+#: admin/view-free.php:164
+#: admin/view-premium.php:157
+msgid "Section"
+msgstr ""
+
+#: admin/view-free.php:167
+#: admin/view-premium.php:160
+msgid ""
+"Add any blocks in our mutiple "
+"sections curated in a creative "
+"way. "
+msgstr ""
+
+#: admin/view-free.php:174
+#: admin/view-premium.php:166
+msgid "Image"
+msgstr ""
+
+#: admin/view-free.php:177
+#: admin/view-premium.php:169
+msgid ""
+"Upload any image to your webpage "
+"with our styling image block."
+msgstr ""
+
+#: admin/view-free.php:184
+#: admin/view-premium.php:175
+msgid "Blockquote"
+msgstr ""
+
+#: admin/view-free.php:187
+#: admin/view-free.php:197
+#: admin/view-premium.php:178
+#: admin/view-premium.php:187
+msgid ""
+"Display beautiful captions or "
+"quotes in your webpage with our "
+"blockquote block."
+msgstr ""
+
+#: admin/view-free.php:194
+#: admin/view-premium.php:184
+msgid "Call to Action"
+msgstr ""
+
+#: admin/view-free.php:204
+#: admin/view-premium.php:193
+#: inc/block-import.php:63
+#: inc/block-import.php:167
+msgid "Timeline"
+msgstr ""
+
+#: admin/view-free.php:207
+#: admin/view-premium.php:196
+msgid ""
+"Showcase your entire timeline "
+"from beginning to end with our "
+"stylish Timeline block."
+msgstr ""
+
+#: admin/view-free.php:214
+#: admin/view-premium.php:202
+msgid "Accordion"
+msgstr ""
+
+#: admin/view-free.php:217
+#: admin/view-premium.php:205
+msgid ""
+"Create a stylish accordion block "
+"in your webpage displaying "
+"content in a stylish layout."
+msgstr ""
+
+#: admin/view-free.php:224
+#: admin/view-premium.php:212
+msgid "Icon List"
+msgstr ""
+
+#: admin/view-free.php:227
+#: admin/view-premium.php:215
+msgid ""
+"Create a list of icons in your "
+"webpage with our Icon List Block."
+msgstr ""
+
+#: admin/view-free.php:234
+#: admin/view-premium.php:222
+#: inc/block-import.php:65
+#: inc/block-import.php:120
+msgid "Image Comparison"
+msgstr ""
+
+#: admin/view-free.php:237
+#: admin/view-premium.php:225
+msgid ""
+"Create an image comparison block "
+"comparing images in a styling "
+"layout."
+msgstr ""
+
+#: admin/view-free.php:244
+#: admin/view-premium.php:232
+msgid "Image Gallery"
+msgstr ""
+
+#: admin/view-free.php:247
+#: admin/view-premium.php:235
+msgid ""
+"An image grid block displaying "
+"content in a beautiful layout on "
+"hover."
+msgstr ""
+
+#: admin/view-free.php:254
+#: admin/view-premium.php:242
+msgid "Image Accordion"
+msgstr ""
+
+#: admin/view-free.php:257
+#: admin/view-premium.php:245
+msgid ""
+"An image accordion block "
+"displaying images with a zooming "
+"effect on hover."
+msgstr ""
+
+#: admin/view-free.php:264
+#: admin/view-premium.php:252
+msgid "Progress Bar"
+msgstr ""
+
+#: admin/view-free.php:267
+#: admin/view-premium.php:255
+msgid ""
+"Create a progress bar in your "
+"webpage displaying your progress "
+"level."
+msgstr ""
+
+#: admin/view-free.php:274
+#: admin/view-premium.php:262
+msgid "Service Box"
+msgstr ""
+
+#: admin/view-free.php:277
+#: admin/view-premium.php:265
+msgid ""
+"Create an awesome service box "
+"displaying content in a styling "
+"layout on hover."
+msgstr ""
+
+#: admin/view-free.php:284
+#: admin/view-premium.php:272
+msgid "Social Icons"
+msgstr ""
+
+#: admin/view-free.php:287
+#: admin/view-premium.php:275
+msgid ""
+"Add social media icons to your "
+"webpage in a styling layout."
+msgstr ""
+
+#: admin/view-free.php:295
+#: admin/view-premium.php:282
+#: build/premium-blocks.bundle.js:1
+msgid "Banner Slider"
+msgstr ""
+
+#: admin/view-free.php:298
+msgid ""
+"Showcases images/promotions "
+"dynamically, increase visual "
+"appeal."
+msgstr ""
+
+#: admin/view-free.php:305
+#: admin/view-premium.php:292
+msgid "Latest Posts"
+msgstr ""
+
+#: admin/view-free.php:308
+#: admin/view-premium.php:295
+msgid ""
+"Displays recent blog posts, "
+"keeping your website content "
+"fresh."
+msgstr ""
+
+#: admin/view-free.php:315
+#: admin/view-premium.php:302
+msgid "Team Box"
+msgstr ""
+
+#: admin/view-free.php:318
+#: admin/view-premium.php:305
+msgid ""
+"Showcases team members, "
+"highlighting key people on your "
+"website."
+msgstr ""
+
+#: admin/view-free.php:325
+#: admin/view-premium.php:312
+msgid "Video"
+msgstr ""
+
+#: admin/view-free.php:328
+#: admin/view-premium.php:315
+msgid ""
+"Displays videos, enhancing "
+"website engagement with "
+"multimedia content."
+msgstr ""
+
+#: admin/view-free.php:335
+#: admin/view-premium.php:322
+msgid "Google Map"
+msgstr ""
+
+#: admin/view-free.php:338
+msgid ""
+" Displays location maps, helping "
+"visitors find your business "
+"easily."
+msgstr ""
+
+#: admin/view-free.php:345
+#: admin/view-premium.php:332
+msgid "Flip Box"
+msgstr ""
+
+#: admin/view-free.php:348
+#: admin/view-premium.php:335
+msgid ""
+"Flips content stylishly to reveal "
+"information on your website pages."
+msgstr ""
+
+#: admin/view-free.php:355
+#: admin/view-premium.php:342
+msgid "Countdown Timer"
+msgstr ""
+
+#: admin/view-free.php:358
+#: admin/view-premium.php:345
+msgid ""
+"Displays countdown, creating "
+"urgency or anticipation on your "
+"website."
+msgstr ""
+
+#: admin/view-free.php:365
+#: admin/view-premium.php:352
+#: inc/block-import.php:59
+#: inc/block-import.php:192
+msgid "Testimonial"
+msgstr ""
+
+#: admin/view-free.php:368
+#: admin/view-premium.php:355
+msgid ""
+"Displays testimonials, showcasing "
+"feedback to build credibility on "
+"your website."
+msgstr ""
+
+#: admin/view-free.php:375
+#: admin/view-premium.php:362
+msgid "Image Slider"
+msgstr ""
+
+#: admin/view-free.php:378
+#: admin/view-premium.php:365
+msgid ""
+"Displays images in a dynamic "
+"slider format on your website."
+msgstr ""
+
+#: admin/view-free.php:385
+#: admin/view-premium.php:372
+msgid "Pricing Table"
+msgstr ""
+
+#: admin/view-free.php:388
+#: admin/view-premium.php:375
+msgid ""
+"Displays pricing options in a "
+"structured format on your website "
+"page."
+msgstr ""
+
+#: admin/view-free.php:395
+#: admin/view-premium.php:382
+msgid "Scroll Up"
+msgstr ""
+
+#: admin/view-free.php:398
+#: admin/view-premium.php:385
+msgid ""
+"Scrolls webpage to top for "
+"convenient navigation on your "
+"website."
+msgstr ""
+
+#: admin/view-free.php:405
+#: admin/view-premium.php:392
+msgid "Preloader"
+msgstr ""
+
+#: admin/view-free.php:408
+#: admin/view-premium.php:395
+msgid ""
+"Shows loading effect during "
+"content load on your website "
+"pages."
+msgstr ""
+
+#: admin/view-free.php:415
+#: admin/view-premium.php:402
+msgid "Site Identity"
+msgstr ""
+
+#: admin/view-free.php:418
+#: admin/view-premium.php:405
+msgid ""
+"Displays site identity like logo "
+"and title on your website."
+msgstr ""
+
+#: admin/view-free.php:425
+#: admin/view-premium.php:412
+msgid "Circle Counter"
+msgstr ""
+
+#: admin/view-free.php:428
+#: admin/view-premium.php:415
+msgid ""
+"Displays a numeric counter, "
+"highlighting milestones / "
+"statistics on website."
+msgstr ""
+
+#: admin/view-free.php:435
+#: admin/view-premium.php:422
+msgid "Isotop Gallery"
+msgstr ""
+
+#: admin/view-free.php:438
+#: admin/view-premium.php:425
+msgid ""
+"Displays stylish isotopic "
+"gallery, showcasing images on "
+"your website page."
+msgstr ""
+
+#: admin/view-free.php:445
+#: admin/view-premium.php:432
+msgid "Stacked Card"
+msgstr ""
+
+#: admin/view-free.php:448
+msgid ""
+"Displays content in stacked card "
+"style for organized presentation "
+"on websites."
+msgstr ""
+
+#: admin/view-free.php:455
+#: admin/view-premium.php:442
+msgid "Table of Contents"
+msgstr ""
+
+#: admin/view-free.php:458
+#: admin/view-premium.php:445
+msgid ""
+"Generates an unordered list from "
+"headings, improving navigation."
+msgstr ""
+
+#: admin/view-free.php:465
+#: admin/view-premium.php:452
+msgid "Breadcrumbs"
+msgstr ""
+
+#: admin/view-free.php:468
+#: admin/view-premium.php:455
+msgid ""
+"Displays navigation paths, "
+"helping users trace and explore "
+"website hierarchy easily."
+msgstr ""
+
+#: admin/view-free.php:481
+#: admin/view-premium.php:468
+msgid "News</span><b>Blocks</b>"
+msgstr ""
+
+#: admin/view-free.php:490
+#: admin/view-premium.php:477
+msgid "Latest News"
+msgstr ""
+
+#: admin/view-free.php:494
+#: admin/view-premium.php:481
+msgid ""
+"A Gutenberg-based Latest News "
+"block displaying recent posts "
+"with titles, images, metadata, "
+"and customizable layouts for "
+"dynamic content presentation."
+msgstr ""
+
+#: admin/view-free.php:501
+#: admin/view-premium.php:488
+msgid "Banner News"
+msgstr ""
+
+#: admin/view-free.php:505
+#: admin/view-premium.php:492
+msgid ""
+"Banner News Blocks is a Gutenberg-"
+"based plugin that displays "
+"featured news with customizable "
+"layouts, animations, and dynamic "
+"content for engaging storytelling."
+msgstr ""
+
+#: admin/view-free.php:512
+#: admin/view-premium.php:499
+msgid "Content News"
+msgstr ""
+
+#: admin/view-free.php:516
+#: admin/view-premium.php:503
+msgid ""
+"A Gutenberg-based Content News "
+"block displays dynamic posts with "
+"images, titles, excerpts, meta, "
+"and pagination, supporting "
+"filters, layouts, and "
+"customization options."
+msgstr ""
+
+#: admin/view-free.php:523
+#: admin/view-premium.php:510
+msgid "Trending News"
+msgstr ""
+
+#: admin/view-free.php:527
+#: admin/view-premium.php:514
+msgid ""
+"Trending News block that "
+"dynamically displays popular "
+"posts with customizable layouts, "
+"styles, pagination, and real-time "
+"updates for engagement."
+msgstr ""
+
+#: admin/view-free.php:534
+#: admin/view-premium.php:521
+msgid "Post Tabs"
+msgstr ""
+
+#: admin/view-free.php:538
+#: admin/view-premium.php:525
+msgid ""
+"A Gutenberg-based Post Tabs block "
+"displaying \"Popular\" and "
+"\"Recent\" posts in two tabs for "
+"better content organization and "
+"user engagement."
+msgstr ""
+
+#: admin/view-free.php:545
+#: admin/view-premium.php:532
+msgid "Popular Post"
+msgstr ""
+
+#: admin/view-free.php:549
+#: admin/view-premium.php:536
+msgid ""
+"The Popular Post block that "
+"dynamically displays the most "
+"viewed posts & offers "
+"customization options, including "
+"layout, styling, and content "
+"visibility."
+msgstr ""
+
+#: admin/view-premium.php:12
+msgid ""
+"42+Basic & Advance </span>Blocks"
+msgstr ""
+
+#: admin/view-premium.php:15
+msgid "Spice Blocks Pro"
+msgstr ""
+
+#: admin/view-premium.php:44
+msgid "35+ Blocks"
+msgstr ""
+
+#: admin/view-premium.php:93
+msgid ""
+"Basic & Advance </span>Blocks"
+msgstr ""
+
+#: admin/view-premium.php:285
+msgid ""
+"Showcases images/promotions "
+"dynamically. increase visual "
+"appeal."
+msgstr ""
+
+#: admin/view-premium.php:325
+msgid ""
+"Displays location maps, helping "
+"visitors find your business "
+"easily."
+msgstr ""
+
+#: admin/view-premium.php:435
+msgid ""
+"Displays content in stacked card "
+"style for organized presentation "
+"on websites. "
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "General Settings"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Content"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "H1"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "H2"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "H3"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "H4"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "H5"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "H6"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Display"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Block"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid " Inline Block"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Margin"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Content Padding"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable on Desktop"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable on Tablet"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable on Mobile"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Animation Effects"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Animation"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "None"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Bounce"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Flash"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Pulse"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "RubberBand"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Shake"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Swing"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Tada"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Wobble"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Jello"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "BounceIn"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "BounceInDown"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "BounceInLeft"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "BounceInRight"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "BounceInUp"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeIn"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInDown"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInDownBig"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInLeft"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInLeftBig"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInRight"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInRightBig"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInUp"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FadeInUpBig"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Flip"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FlipInX"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "FlipInY"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "LightSpeedIn"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "RollIn"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "RotateIn"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "RotateInDownLeft"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "RotateInDownRight"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "RotateInUpLeft"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "RotateInUpRight"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "SlideInDown"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "SlideInLeft"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "SlideInRight"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "ZoomIn"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "ZoomInDown"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "ZoomInLeft"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "ZoomInRight"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "ZoomInUp"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Durations"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Normal"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Slow"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Fast"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Delay(ms)"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Text Shadow"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Horizontal Shadow(px)"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Vertical Shadow(px)"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Blur Shadow(px)"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Text Shadow Color"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Text Shadow:"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Color & Background Settings"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Title"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Heading Color:"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Background"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Border Settings"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Border"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Border Radius"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Typography Settings"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid " Font Family"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Font Weight"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Thin"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Extra Light"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Light"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Regular"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Medium"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Semi Bold"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Bold"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Extra Bold"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Black"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Line Height"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Transform"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Default"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Uppercase"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Lowercase"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Capitalize"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Decoration "
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Underline"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Overline"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Line Through"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Letter Spacing"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Additional Settings"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Additional ID"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Additional Class"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+#: build/premium-blocks.bundle.js:1
+msgid "Custom CSS"
+msgstr ""
+
+#: build/free-blocks.bundle.js:1
+msgid "Enter Heading Here..."
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Sub-title"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Description"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Button Text"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Button Link"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Open in new Tab"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Content Alignment "
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Left"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Center"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Right"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Add Image"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Background Size"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Cover"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Contain"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Auto"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Background Repeat"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "No Repeat"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Repeat"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Repeat X"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Repeat Y"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Slides"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Add Slide"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable Sub-title"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable Title"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable Description"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable Button"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable Autoplay"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable Navigation"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Banner Height"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Content Width"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Navigation Icon"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Right Angle >"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Double Right Angle >>"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Arrow ->"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Long Arrow -->"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Width(px)"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable/Disable Indicator"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Indicator Type"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Numeric"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Dot"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Active Dot Width(px)"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Animation Speed"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Smooth Speed"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Spacing"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Padding"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Sub-title Margin"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Sub-title Padding"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Title Margin"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Title Padding"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Description Margin"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Description Padding"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Button Margin"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Button Padding"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Nav Margin"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Nav Padding"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Dot Margin"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Dot Padding"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Content Border"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Content Border Radius"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Sub-title Border"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Sub-title Border Radius"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Button Border"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Button Border Radius"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Navigation Border"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Navigation Border Radius"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Dots Border"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Dots Border Radius"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Background Overlay"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Enable Overlay"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Overlay Color"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Overlay Color:"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Overlay Opacity"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Sub-title Background"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Content Background"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Button Background"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Nav Background"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Nav Icon"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Dot Background"
+msgstr ""
+
+#: build/premium-blocks.bundle.js:1
+msgid "Hover"
+msgstr ""
+
+#: free-plugin.php:7
+#: free-plugin.php:8
+#: free-plugin.php:475
+#: pro-plugin.php:8 pro-plugin.php:9
+#: pro-plugin.php:2126
+msgid "Spice Blocks"
+msgstr ""
+
+#: free-plugin.php:17
+#: free-plugin.php:18
+#: pro-plugin.php:18
+#: pro-plugin.php:19
+msgid "Spice Blocks Panel"
+msgstr ""
+
+#: inc/block-import.php:32
+msgid "Starter Packs"
+msgstr ""
+
+#: inc/block-import.php:33
+msgid "Sections"
+msgstr ""
+
+#: inc/block-import.php:49
+#: inc/block-import.php:242
+msgid "Categories"
+msgstr ""
+
+#: inc/block-import.php:51
+#: inc/block-import.php:244
+#: pro-plugin.php:7269
+msgid "All"
+msgstr ""
+
+#: inc/block-import.php:52
+#: inc/block-import.php:177
+msgid "Banner"
+msgstr ""
+
+#: inc/block-import.php:53
+#: inc/block-import.php:80
+msgid "Feature"
+msgstr ""
+
+#: inc/block-import.php:54
+#: inc/block-import.php:90
+msgid "About"
+msgstr ""
+
+#: inc/block-import.php:55
+#: inc/block-import.php:100
+msgid "Service"
+msgstr ""
+
+#: inc/block-import.php:56
+msgid "Project"
+msgstr ""
+
+#: inc/block-import.php:57
+#: inc/block-import.php:147
+msgid "Team"
+msgstr ""
+
+#: inc/block-import.php:58
+#: inc/block-import.php:157
+msgid "Pricing"
+msgstr ""
+
+#: inc/block-import.php:60
+#: inc/block-import.php:202
+msgid "Faq"
+msgstr ""
+
+#: inc/block-import.php:61
+#: inc/block-import.php:212
+msgid "Client"
+msgstr ""
+
+#: inc/block-import.php:62
+#: inc/block-import.php:110
+msgid "Progress"
+msgstr ""
+
+#: inc/block-import.php:64
+#: inc/block-import.php:222
+msgid "Call To Action"
+msgstr ""
+
+#: inc/block-import.php:81
+#: inc/block-import.php:91
+#: inc/block-import.php:101
+#: inc/block-import.php:111
+#: inc/block-import.php:121
+#: inc/block-import.php:138
+#: inc/block-import.php:148
+#: inc/block-import.php:158
+#: inc/block-import.php:168
+#: inc/block-import.php:178
+#: inc/block-import.php:193
+#: inc/block-import.php:203
+#: inc/block-import.php:213
+#: inc/block-import.php:223
+msgid "Import"
+msgstr ""
+
+#: inc/block-import.php:245
+#: inc/block-import.php:263
+msgid "Dark Fusion"
+msgstr ""
+
+#: inc/block-import.php:246
+#: inc/block-import.php:275
+msgid "Architect"
+msgstr ""
+
+#: inc/block-import.php:247
+#: inc/block-import.php:286
+msgid "Business"
+msgstr ""
+
+#: inc/block-import.php:264
+msgid "Preview"
+msgstr ""
+
+#: inc/block-import.php:298
+msgid "Back to Starter Packs"
+msgstr ""
+
+#: pro-plugin.php:2928
+msgid "(no title)"
+msgstr ""
+
+#: pro-plugin.php:2951
+#, php-format
+msgid "By %s"
+msgstr ""
+
+#: pro-plugin.php:3032
+#, php-format
+msgid "View all posts in %s"
+msgstr ""
+
+#: pro-plugin.php:3068
+#: pro-plugin.php:3084
+msgid ""
+"This content is password "
+"protected."
+msgstr ""
+
+#: pro-plugin.php:4848
+msgid "Spice News"
+msgstr ""
