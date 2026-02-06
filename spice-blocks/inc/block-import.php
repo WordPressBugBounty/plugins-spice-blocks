@@ -8,7 +8,7 @@ function spice_blocks_plus_import_style(){
     $id = $GLOBALS['hook_suffix'];
     if($id=='post-new.php' || $id=='post.php'){
         wp_enqueue_style( 'spice-blocks-custom-editor-css', SPICE_BLOCKS_PLUGIN_URL. '/assets/css/block.css', ['wp-edit-blocks'],
-               false,
+               '1.0',
                'all' );   
         wp_enqueue_script( 'spice-blocks-custom-link-in-toolbar', SPICE_BLOCKS_PLUGIN_URL. '/assets/js/block.js', array(), '1.0', true );  
     }    
@@ -316,46 +316,84 @@ add_action( 'wp_ajax_pva_create01', 'spice_blocks_plus_pva_create01',11 );
 /* WP Insert Post Function
 ----- */
 
-function spice_blocks_plus_pva_create01(){  
-   if(isset($_POST['file_path'])){
-        $url  = $_POST['file_path'];
-        $file_name  = $_POST['file_name'];
-        $post_id = $_POST['post_id'];
-        //$type = $_POST['type'];
+function spice_blocks_plus_pva_create01() {
+
+    // Check if form submitted and nonce is valid
+    if ( isset( $_POST['file_path'], $_POST['file_name'], $_POST['post_id'], $_POST['spice_block_nonce'] ) 
+        && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['spice_block_nonce'] ) ), 'spice_block_pva_action' ) ) {
+
+        global $wp_filesystem;
+
+        // Initialize WP_Filesystem
+        if ( ! function_exists( 'request_filesystem_credentials' ) ) {
+            require_once ABSPATH . 'wp-admin/includes/file.php';
+        }
+        if ( ! WP_Filesystem() ) {
+            return; // Abort if filesystem is not initialized
+        }
+
+        // Sanitize and unslash inputs
+        $url       = esc_url_raw( wp_unslash( $_POST['file_path'] ) );
+        $file_name = sanitize_file_name( wp_unslash( $_POST['file_name'] ) );
+        $post_id   = absint( wp_unslash( $_POST['post_id'] ) );
+
+        // Prepare upload directory
         $uploads_dir = trailingslashit( wp_upload_dir()['basedir'] ) . 'spice-blocks-plus';
         wp_mkdir_p( $uploads_dir );
-        $path = $uploads_dir.'/'.$file_name.'.json';
-        $fp = fopen($path, 'w');
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_FILE, $fp);
-        $data = curl_exec($ch);
-        curl_close($ch);
-        fclose($fp);
-        $str = file_get_contents($path);
-        $jsondata = json_decode($str,true);
-        // Create post object
-        
 
-        $str01=str_replace(array('u003cbru003e','\\u003cbr\\u003e','u0026amp;','u003c/emu003e','u0026','\\u003cem\\u003e','\\u003c/em\\u003e','u003cemu003e','u003c/emu003e'), array('<br>','<br>','&','','&','<em>','</em>','<em>','</em>'), $jsondata['content']);
-        $content_post = get_post($post_id);
-        $contentold = $content_post->post_content;
-        $str02=str_replace(array('u003cbru003e','\\u003cbr\\u003e','u0026amp;','u003c/emu003e','u0026','\\u003cem\\u003e','\\u003c/em\\u003e','u003cemu003e','u003c/emu003e'), array('<br>','<br>','&','','&','<em>','</em>','<em>','</em>'), $contentold);         
-        if($content_post->post_title=='Auto Draft'){
-            $titleold = '';
-        }else{
-            $titleold = $content_post->post_title;
+        // File path
+        $path = $uploads_dir . '/' . $file_name . '.json';
+
+        // Download file using wp_remote_get instead of cURL
+        $response = wp_remote_get( $url );
+
+        if ( is_wp_error( $response ) ) {
+            return; // Abort if download fails
         }
-        $updatecontent ='';
-        $updatecontent .=$str02;
-        $updatecontent .=$str01;
-        $updated_post = array(
-            'ID'            => $post_id,
-            'post_type'     => 'page',
-            'post_title'    => $titleold,
-            'post_content'  => $updatecontent,
-            'post_status'   => 'publish',
-            'post_author'   => 1,
-        );
-        wp_update_post($updated_post);
+
+        $file_content = wp_remote_retrieve_body( $response );
+
+        if ( ! empty( $file_content ) ) {
+            // Save file using WP_Filesystem
+            $wp_filesystem->put_contents( $path, $file_content, FS_CHMOD_FILE );
+
+            // Read file using WP_Filesystem
+            $str      = $wp_filesystem->get_contents( $path );
+            $jsondata = json_decode( $str, true );
+
+            if ( ! empty( $jsondata['content'] ) && $post_id ) {
+                $str01 = str_replace(
+                    array( 'u003cbru003e', '\\u003cbr\\u003e', 'u0026amp;', 'u003c/emu003e', 'u0026', '\\u003cem\\u003e', '\\u003c/em\\u003e', 'u003cemu003e', 'u003c/emu003e' ),
+                    array( '<br>', '<br>', '&', '', '&', '<em>', '</em>', '<em>', '</em>' ),
+                    $jsondata['content']
+                );
+
+                $content_post = get_post( $post_id );
+                $contentold   = $content_post ? $content_post->post_content : '';
+                $str02        = str_replace(
+                    array( 'u003cbru003e', '\\u003cbr\\u003e', 'u0026amp;', 'u003c/emu003e', 'u0026', '\\u003cem\\u003e', '\\u003c/em\\u003e', 'u003cemu003e', 'u003c/emu003e' ),
+                    array( '<br>', '<br>', '&', '', '&', '<em>', '</em>', '<em>', '</em>' ),
+                    $contentold
+                );
+
+                $titleold = ( $content_post && 'Auto Draft' !== $content_post->post_title ) ? $content_post->post_title : '';
+
+                $updatecontent  = $str02;
+                $updatecontent .= $str01;
+
+                // Update post
+                $updated_post = array(
+                    'ID'           => $post_id,
+                    'post_type'    => 'page',
+                    'post_title'   => $titleold,
+                    'post_content' => $updatecontent,
+                    'post_status'  => 'publish',
+                    'post_author'  => get_current_user_id(),
+                );
+
+                wp_update_post( $updated_post );
+            }
+        }
     }
-};
+}
+add_action( 'admin_init', 'spice_blocks_plus_pva_create01' );

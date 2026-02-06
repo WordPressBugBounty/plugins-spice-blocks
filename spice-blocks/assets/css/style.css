@@ -123,21 +123,21 @@
   body .hide-desktop,
   body div > .spice-block-container-fluid.hide-desktop,
   body .spice-block-countdown .hide-desktop {
-    display: none;
+    display: none !important;
   }
 }
 @media (min-width: 692px) and (max-width: 1100px) {
   body .hide-tablet,
   body div > .spice-block-container-fluid.hide-tablet,
   body .spice-block-countdown .hide-tablet {
-    display: none;
+    display: none !important;
   }
 }
 @media (max-width: 691px) {
   body .hide-mobile,
   body div > .spice-block-container-fluid.hide-mobile,
   body .spice-block-countdown .hide-mobile {
-    display: none;
+    display: none !important;
   }
 }
 .animated.slow {
@@ -147,7 +147,10 @@
   animation-duration: 0.7s;
 }
 .spice-blocks-divider-line {
-  border: 2px solid;
+  border-top-width: 1px;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-bottom-width: 0;
   display: inline-block;
 }
 .wp-block-spice-blocks-spice-button {
@@ -1053,19 +1056,19 @@ body.icv__body {
 @media (min-width: 1281px) {
   body .hide-desktop,
   body .front-view.gallery-hide-desktop {
-    display: none;
+    display: none !important;
   }
 }
 @media (min-width: 692px) and (max-width: 1100px) {
   body .hide-tablet,
   .front-view.gallery-hide-tablet {
-    display: none;
+    display: none !important;
   }
 }
 @media (max-width: 691px) {
   body .hide-mobile,
   body .front-view.gallery-hide-mobile {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -5725,3 +5728,221 @@ transform-style: preserve-3d;}
   font-size: 13px;
   color: #999;
 }*/
+
+/*custom slider arrow*/
+
+.custom-slick-prev,
+.custom-slick-next {
+  font-size: 1.6rem;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: unset;
+  height: unset;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  outline: none;
+  background: #bd686800;
+  border-radius: 50%;
+  margin: 0 4%;
+/*  border: 1px solid #fff;*/
+}
+.custom-slick-slider .custom-slick-prev,
+.custom-slick-slider .custom-slick-next {
+  opacity: 0;
+}
+.custom-slick-slider:hover .custom-slick-prev,
+.custom-slick-slider:hover .custom-slick-next {
+  opacity: 1;
+  z-index: 1;
+}
+.custom-slick-prev:hover:before,
+.custom-slick-prev:focus:before,
+.custom-slick-next:hover:before,
+.custom-slick-next:focus:before {
+  opacity: 1;
+}
+.custom-slick-slider button.custom-slick-prev:focus,
+.custom-slick-slider button.custom-slick-next:focus{
+    outline: none;
+}
+.custom-slick-prev.slick-disabled:before,
+.custom-slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+
+.custom-slick-prev:before,
+.custom-slick-next:before {
+  font-family: '"Font Awesome 5 Free"';
+  font-size: 20px;
+  line-height: 1;
+
+  opacity: 0.75;
+  color: white;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-slick-prev {
+  left: -25px;
+}
+[dir="rtl"] .custom-slick-prev {
+  right: -25px;
+  left: auto;
+}
+
+.custom-slick-next {
+  right: -25px;
+}
+[dir="rtl"] .custom-slick-next {
+  right: auto;
+  left: -25px;
+}
+
+/*custom slider dots*/
+
+/* Dots */
+
+.slick-dots {
+  position: absolute;
+  bottom: 25px;
+
+  display: block;
+
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  text-align: center;
+}
+.slick-dots li {
+  position: relative;
+
+  display: inline-block;
+
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+}
+.slick-dots li button {
+  font-size: 20px;
+  font-family: "Poppins";
+  line-height: 0;
+  color: #ffffff;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+}
+
+ul.slick-dots {
+  counter-reset: count;
+  display: inline-flex;
+  justify-content: right;
+  padding-right: 20px;
+  align-items: center;
+}
+.dots ul.slick-dots {
+  padding-right: 0;
+}
+ul.slick-dots li {
+  counter-increment: count;
+}
+ul.slick-dots li button {
+  display: none;
+}
+ul.slick-dots li.slick-active button {
+  display: block;
+}
+ul.slick-dots li {
+  counter-increment: count;
+}
+ul.slick-dots:after {
+  content: "/ " counter(count);
+  color: #ffffff;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: "Poppins";
+}
+
+.custom-slick-slider.dots ul.slick-dots {
+  /*justify-content: center;*/
+}
+
+.custom-slick-slider.dots ul.slick-dots:after {
+  display: none;
+}
+.custom-slick-slider.dots ul.slick-dots li button {
+  font-size: 0;
+  background-color: #fff;
+  margin: 0 3px;
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 10px;
+}
+
+.custom-slick-slider.dots ul.slick-dots li.slick-active button {
+  width: 32px;
+}
+
+/*Star Rating CSS*/
+
+.star-rating-block {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+.star-empty {
+  color: #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.star-fill.full {
+  width: 100%;
+}
+
+.star-fill.half {
+  width: 42.5%;
+}

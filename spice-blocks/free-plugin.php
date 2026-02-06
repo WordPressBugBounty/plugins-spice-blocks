@@ -30,8 +30,8 @@ if(!function_exists('spice_blocks_style_script')){
     function spice_blocks_style_script(){
         $id = $GLOBALS['hook_suffix'];
         if('toplevel_page_spice-blocks'==$id){
-            wp_enqueue_style( 'spice-blocks-about-css', SPICE_BLOCKS_PLUGIN_URL . 'admin/assets/css/about.css' );
-            wp_enqueue_style( 'spice-blocks-all-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+            wp_enqueue_style( 'spice-blocks-about-css', SPICE_BLOCKS_PLUGIN_URL . 'admin/assets/css/about.css', array(),SPICE_BLOCKS_VERSION );
+            wp_enqueue_style( 'spice-blocks-all-css', SPICE_BLOCKS_PLUGIN_URL .'assets/all.min.css', array(),'6.2.1');
         }
     }
 }
@@ -90,7 +90,9 @@ final class Spice_Blocks{
                 'wp-components',
                 'wp-data',
 
-            ]
+            ],
+            filemtime( plugin_dir_path( __FILE__ ) . 'build/free-blocks.bundle.js' ), // version
+            true // in footer
         );
          wp_localize_script(
                 'spice-blocks-free',
@@ -105,81 +107,110 @@ final class Spice_Blocks{
         if(isset($GLOBALS['hook_suffix'])){
             $hook_suffix = $GLOBALS['hook_suffix'];
             if($hook_suffix!='customize.php'){
-                wp_enqueue_script('spice-jquery-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/jquery.min.js');
+                wp_enqueue_script('spice-jquery-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/jquery.min.js',
+                array('jquery'), // Dependencies (optional)
+                filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/jquery.min.js' ), // Version (auto from file modified time)
+                true // Load in footer
+            );
             }
         }
          wp_enqueue_style(
-           'spice-blocks-editor-css',
-           SPICE_BLOCKS_PLUGIN_URL.'assets/css/editor.css',
-           false,
-           'all'
+            'spice-blocks-editor-css',
+            SPICE_BLOCKS_PLUGIN_URL.'assets/css/editor.css',
+            SPICE_BLOCKS_VERSION,
+            'all'
         );
         wp_enqueue_style(
             'spice-blocks-animate',
-            SPICE_BLOCKS_PLUGIN_URL.'assets/css/animate.css'
+            SPICE_BLOCKS_PLUGIN_URL.'assets/css/animate.css',
+            array(),
+            '3.5.1' 
         );  
          wp_enqueue_script(
              'spice-blocks-accordion',
-             SPICE_BLOCKS_PLUGIN_URL.'assets/js/accordion.js',array('jquery')
+             SPICE_BLOCKS_PLUGIN_URL.'assets/js/accordion.js',
+            array('jquery'),
+            SPICE_BLOCKS_VERSION,
+            true
          );
 
          wp_enqueue_script(
-             'spice-blocks-fontawesome',
-             SPICE_BLOCKS_PLUGIN_URL.'assets/js/fontawesome.js'
+            'spice-blocks-fontawesome',
+            SPICE_BLOCKS_PLUGIN_URL.'assets/js/fontawesome.js',
+            array(),
+            filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/fontawesome.js' ),
+            true
          );
         if( ! is_admin() ){
              wp_enqueue_style(
-                 'spice-blocks-img-compare',
-                 SPICE_BLOCKS_PLUGIN_URL.'assets/css/image-compare-viewer.css'
+                'spice-blocks-img-compare',
+                SPICE_BLOCKS_PLUGIN_URL.'assets/css/image-compare-viewer.css',
+                array(),
+                filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/image-compare-viewer.css' ),
+                'all'
              );
              wp_enqueue_script(
                  'spice-blocks-image-compare-viewer',
-                 SPICE_BLOCKS_PLUGIN_URL.'assets/js/image-compare-viewer-min.js',array('jquery'), rand(), true
+                 SPICE_BLOCKS_PLUGIN_URL.'assets/js/image-compare-viewer-min.js',array('jquery'), wp_rand(), true
             );
              wp_enqueue_script(
                  'spice-blocks-image-compare-custom',
-                 SPICE_BLOCKS_PLUGIN_URL.'assets/js/image-compare-custom.js',array('jquery'), rand(), true
+                 SPICE_BLOCKS_PLUGIN_URL.'assets/js/image-compare-custom.js',array('jquery'), wp_rand(), true
              );
         }
-            wp_enqueue_style(
-               'spice-blocks-style',
-               SPICE_BLOCKS_PLUGIN_URL.'assets/css/style.css',
-               [],
-               false,
-               'all'
-            );
+        wp_enqueue_style(
+           'spice-blocks-style',
+           SPICE_BLOCKS_PLUGIN_URL.'assets/css/style.css',
+           [],
+           SPICE_BLOCKS_VERSION,
+           'all'
+        );
 
-            wp_enqueue_style(
-               'spice-blocks-newsstyle',
-               SPICE_BLOCKS_PLUGIN_URL.'assets/css/newsstyle.css',
-               [],
-               false,
-               'all'
-            );
-        
-        wp_enqueue_style('spice-blocks-slick-css','https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css'); 
-        wp_enqueue_style('spice-blocks-magnific-css','https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css'); 
-        wp_enqueue_script('animate-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/animation/animate.js');
-        wp_enqueue_script('wow-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/animation/wow.min.js');
+        wp_enqueue_style(
+           'spice-blocks-newsstyle',
+           SPICE_BLOCKS_PLUGIN_URL.'assets/css/newsstyle.css',
+           [],
+           SPICE_BLOCKS_VERSION,
+           'all'
+        );        
+        wp_enqueue_style('spice-blocks-magnific-css',SPICE_BLOCKS_PLUGIN_URL . 'assets/css/magnific-popup.css', array(), '1.1.0'); 
+        wp_enqueue_script('animate-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/animation/animate.js',
+            array(), 
+            filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/animation/animate.js' ), 
+            true );
+        wp_enqueue_script(
+            'wow-js',
+            SPICE_BLOCKS_PLUGIN_URL . 'assets/js/animation/wow.min.js',
+            array(), // dependencies
+            '0.1.9', // version (use your plugin version constant or filemtime)
+            true // in footer
+        );
+
+        // Custom script
+        wp_enqueue_script(
+            'spice-blocks',
+            SPICE_BLOCKS_PLUGIN_URL . 'assets/js/custom.js',
+            array('jquery'), // example dependency
+            SPICE_BLOCKS_VERSION,
+            true
+        );
+
+        // Isotope
+        wp_enqueue_script(
+            'spice-blocks-isotope-js',
+            SPICE_BLOCKS_PLUGIN_URL . 'assets/js/isotope.pkgd.min.js',
+            array('jquery'),
+            '3.0.6',
+            true
+        );
         
          wp_enqueue_script(
             'spice-video',
-            'https://dimsemenov.com/plugins/magnific-popup/dist/jquery.magnific-popup.min.js'
+             SPICE_BLOCKS_PLUGIN_URL . 'assets/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true
         );
-         wp_enqueue_script(
-            'spice-blocks',
-            SPICE_BLOCKS_PLUGIN_URL . 'assets/js/custom.js'
-        );
-        // wp_enqueue_style(
-        //     'spice-blocks-menu',
-        //     SPICE_BLOCKS_PLUGIN_URL.'assets/css/menu.css'
-        // );
-        wp_enqueue_script('spice-blocks-slick-js','https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js' );
-        wp_enqueue_script('spice-slick-animation-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/slick-animation.js');
-        wp_enqueue_script('spice-blocks-isotope-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/isotope.pkgd.min.js' ); 
 
-        wp_enqueue_script('spice-blocks-imageloaded-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js' );       
-        wp_enqueue_script('spice-blocks-magnific-js','https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js' );
+        wp_enqueue_script('spice-blocks-imageloaded-js', SPICE_BLOCKS_PLUGIN_URL . 'assets/js/imagesloaded.pkgd.min.js', array( 'jquery' ), '5.0.0', true  );       
+        
     }
 
     
@@ -192,7 +223,7 @@ final class Spice_Blocks{
            'spice-blocks-editor-js',
            SPICE_BLOCKS_PLUGIN_URL.'assets/js/editor.js',
            array('jquery'),
-           rand(),
+           wp_rand(),
            true
         );
         wp_localize_script('spice-blocks-editor-js','plugin',['pluginpath' => SPICE_BLOCKS_PLUGIN_URL,'plugindir' => SPICE_BLOCKS_PLUGIN_UPLOAD, 'pva_ajax_url' => admin_url( 'admin-ajax.php' ) ]);
@@ -203,14 +234,14 @@ final class Spice_Blocks{
            'spice-blocks-fonticonpicker-material',
            SPICE_BLOCKS_PLUGIN_URL.'assets/css/fonticonpicker/fonticonpicker.material-theme.react.css',
            ['wp-edit-blocks'],
-               false,
+               '1.2.0',
                'all'
         );
         wp_enqueue_style(
            'spice-blocks-fonticonpicker-base',
            SPICE_BLOCKS_PLUGIN_URL.'assets/css/fonticonpicker/fonticonpicker.base-theme.react.css',
            ['wp-edit-blocks'],
-               false,
+               '1.2.0',
                'all'
         );
     }
@@ -314,7 +345,7 @@ final class Spice_Blocks{
         register_block_type('spice-blocks/spice-category-tab-posts', array(
                 'style'=> 'spice-blocks-newsstyle',
                 'editor_style'=>'spice-blocks-editor-css',
-                'render_callback' => 'render_category_tab_block',
+                'render_callback' => 'spice_blocks_render_category_tab_block',
                 'attributes' => [
                         'uniqueid'=>[ 'type'=>'string'],
                         'categoryColors' =>['type'=>'object', 'default'=>[]],
@@ -442,15 +473,19 @@ final class Spice_Blocks{
                         'addclass'=>['type' => 'string','default' => ''],
                         'customcss'=>['type' => 'string','default' => ''],
                     ]
-                ));
-
+                )); 
+        
+        
     }       
 
     /**
      * Load the localisation file.
      */
     public function spice_blocks_load_plugin_textdomain() {
-        load_plugin_textdomain( 'spice-blocks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+        load_textdomain(
+            'spice-blocks',
+            plugin_dir_path( __FILE__ ) . 'languages/' . get_locale() . '.mo'
+        );
     }
 
 }
@@ -492,64 +527,99 @@ function spice_blocks_body_class( $classes ) {
 }
 
 //Download Page
-if(isset($_POST['download_page'])){
-    function spice_block_json_download_new($id){        
-        if(empty($_GET['post'])){
-            echo '<script type="text/javascript">
-                    window.onload = function () { alert("Saved Page Firstly"); }
-                </script>';
-            return 0;
-        }else{
-            $post_id = $_GET['post'];
-        }
-        $query = new WP_Query(  array( 'page_id' => $post_id ) );
-        while( $query->have_posts() ) : $query->the_post();        
-        $posts= [
-                '__file'=> "Spice_Blocks_Export",
-                'version'=> 2,
-                'content' => get_the_content()
-            ];
-        endwhile;
-        
+// Trigger download if 'download_page' is set in POST request
+function spice_block_json_download_new() {
 
-        $data=json_encode($posts, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
-        $filename='WP-POST-'.$post_id.'.json';
-        header('Content-Type: application/json');
-        header('Content-Disposition: attachment; filename='.$filename);
-        header('Pragma: no-cache');
-        echo $data;
-        exit();
+    // Check if form submitted
+    if ( isset( $_POST['download_page'] ) ) {
+
+        // Verify nonce for security
+        if ( ! isset( $_POST['spice_block_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['spice_block_nonce'] ) ), 'spice_block_download_action' ) ) {
+            wp_die( esc_html__( 'Security check failed.', 'spice-blocks' ) );
+        }
+
+        // Validate and sanitize the post ID from GET
+        $post_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
+
+        if ( empty( $post_id ) ) {
+            echo '<script type="text/javascript">
+                    window.onload = function () { alert("Please save the page first."); }
+                  </script>';
+            return;
+        }
+
+        // Query the post
+        $query = new WP_Query( array( 'page_id' => $post_id ) );
+
+        $posts = array();
+
+        if ( $query->have_posts() ) {
+            while ( $query->have_posts() ) :
+                $query->the_post();
+
+                $posts = array(
+                    '__file'  => 'Spice_Blocks_Export',
+                    'version' => 2,
+                    'content' => get_the_content(),
+                );
+
+            endwhile;
+            wp_reset_postdata();
+        }
+
+        // Send JSON download
+        $filename = 'WP-POST-' . $post_id . '.json';
+
+        header( 'Content-Type: application/json' );
+        header( 'Content-Disposition: attachment; filename=' . sanitize_file_name( $filename ) );
+        header( 'Pragma: no-cache' );
+
+        // Safely output JSON
+        echo wp_json_encode( $posts, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        exit;
     }
-    add_action( 'init', 'spice_block_json_download_new' );
 }
+add_action( 'admin_init', 'spice_block_json_download_new' );
+
+
+
 
 // Add Custom Template
 function spice_blocks_custom_template_replace() {
     $theme_template_path_html = get_stylesheet_directory() . '/templates/spice-blocks-full-width-template.html';
-    $theme_template_path_php = get_stylesheet_directory() . '/spice-blocks-full-width-template.php';
+    $theme_template_path_php  = get_stylesheet_directory() . '/spice-blocks-full-width-template.php';
 
-    if (file_exists(get_template_directory() . '/theme.json')) {
+    if ( file_exists( get_template_directory() . '/theme.json' ) ) {
         // Use HTML template if theme.json exists
-        $plugin_template_path = plugin_dir_path(__FILE__) . 'inc/template/spice-blocks-full-width-template.html';
+        $plugin_template_path = plugin_dir_path( __FILE__ ) . 'inc/template/spice-blocks-full-width-template.html';
 
-        // Copy only if the file doesn’t already exist in the theme
-        if (!file_exists($theme_template_path_html) && file_exists($plugin_template_path)) {
-            if (!copy($plugin_template_path, $theme_template_path_html)) {
-                error_log("Failed to copy $plugin_template_path to $theme_template_path_html");
+        if ( ! file_exists( $theme_template_path_html ) && file_exists( $plugin_template_path ) ) {
+            if ( ! copy( $plugin_template_path, $theme_template_path_html ) ) {
+                add_action( 'admin_notices', function () use ( $plugin_template_path, $theme_template_path_html ) {
+                    printf(
+                        '<div class="notice notice-error"><p>%s</p></div>',
+                        esc_html( sprintf( 'Failed to copy %s to %s', $plugin_template_path, $theme_template_path_html ) )
+                    );
+                } );
             }
         }
     } else {
         // Use PHP template otherwise
-        $plugin_template_path = plugin_dir_path(__FILE__) . 'inc/template/spice-blocks-full-width-template.php';
+        $plugin_template_path = plugin_dir_path( __FILE__ ) . 'inc/template/spice-blocks-full-width-template.php';
 
-        // Copy only if the file doesn’t already exist in the theme
-        if (!file_exists($theme_template_path_php) && file_exists($plugin_template_path)) {
-            if (!copy($plugin_template_path, $theme_template_path_php)) {
-                error_log("Failed to copy $plugin_template_path to $theme_template_path_php");
+        if ( ! file_exists( $theme_template_path_php ) && file_exists( $plugin_template_path ) ) {
+            if ( ! copy( $plugin_template_path, $theme_template_path_php ) ) {
+                add_action( 'admin_notices', function () use ( $plugin_template_path, $theme_template_path_php ) {
+                    printf(
+                        '<div class="notice notice-error"><p>%s</p></div>',
+                        esc_html( sprintf( 'Failed to copy %s to %s', $plugin_template_path, $theme_template_path_php ) )
+                    );
+                } );
             }
         }
     }
 }
+
 add_action('after_setup_theme', 'spice_blocks_custom_template_replace');
 
 //Add Template in Block themes
@@ -570,7 +640,7 @@ if(file_exists(get_template_directory().'/theme.json')){
     add_filter( 'wp_theme_json_data_theme', 'filter_theme_json_theme' );
 }
 
-function render_category_tab_block($attributes) {
+function spice_blocks_render_category_tab_block($attributes) {
     $uniqueid = esc_attr($attributes['uniqueid']);
     $customcss = isset($attributes['customcss']) ? $attributes['customcss'] : '';
     $selected_categories = isset($attributes['selectedCategories']) ? $attributes['selectedCategories'] : [];
@@ -648,7 +718,7 @@ function render_category_tab_block($attributes) {
                     : '';
 
                 $displaydate = ($attributes['displayDate'] === true)
-                    ? '<span class="hst-date"><i class="fa-regular fa-calendar"></i><a href="' . esc_url(home_url('/')) . esc_html(date('Y/m', strtotime(get_the_date()))) . '">' . esc_html($post_date) . '</a></span>'
+                    ? '<span class="hst-date"><i class="fa-regular fa-calendar"></i><a href="' . esc_url(home_url('/')) . esc_html(gmdate('Y/m', strtotime(get_the_date()))) . '">' . esc_html($post_date) . '</a></span>'
                     : '';
 
                 $displaycomment = ($attributes['displayComment'] === true)
@@ -746,7 +816,7 @@ function render_category_tab_block($attributes) {
                 : '';
 
             $displaydate = ($attributes['displayDate'] === true)
-                ? '<span class="hst-date"><i class="fa-regular fa-calendar"></i><a href="' . esc_url(home_url('/')) . esc_html(date('Y/m', strtotime(get_the_date()))) . '">' . esc_html($post_date) . '</a></span>'
+                ? '<span class="hst-date"><i class="fa-regular fa-calendar"></i><a href="' . esc_url(home_url('/')) . esc_html(gmdate('Y/m', strtotime(get_the_date()))) . '">' . esc_html($post_date) . '</a></span>'
                 : '';
 
             $displaycomment = ($attributes['displayComment'] === true)
@@ -797,137 +867,140 @@ function render_category_tab_block($attributes) {
     // Optional CSS
     $custom_style = '';
     if (!empty($customcss)) {
-        $custom_style = "<style>{$customcss}</style>";
+        $custom_style = "<style>'.$customcss.'</style>";
     }
 
     // Scoped JS with Unique ID
-    $script = <<<EOD
-    <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("{$uniqueid}");
-            const buttons = container.querySelectorAll(".hst-btn");
-            const tabContents = container.querySelectorAll(".hst-tab-content");
+    $script ='<script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const container = document.getElementById("'.$uniqueid.'");
+                    const buttons = container.querySelectorAll(".hst-btn");
+                    const tabContents = container.querySelectorAll(".hst-tab-content");
 
-            // Attach click handlers to buttons
-            buttons.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    const filter = btn.getAttribute("data-filter");
+                    // Default tab
+                    const devcat = "all"; 
+                    const defaultTab = container.querySelector(`.hst-tab-content[data-cat="${devcat}"]`);
+                    if (defaultTab) {
+                        defaultTab.style.display = "flex";
 
-                    // Update active state
-                    buttons.forEach(b => b.classList.remove("active"));
-                    btn.classList.add("active");
+                        // Set "all" button active if present
+                        const defaultBtn = container.querySelector(`.hst-btn[data-filter="${devcat}"]`);
+                        if (defaultBtn) defaultBtn.classList.add("active");
 
-                    // Show only matching tab
-                    tabContents.forEach(tab => {
-                        tab.style.display = (tab.getAttribute("data-cat") === filter) ? "flex" : "none";
+                        updateVisiblePostStyles(); // ✅ run once on load
+                    }
+
+                    // Click handlers...
+                    buttons.forEach(btn => {
+                        btn.addEventListener("click", () => {
+                            const filter = btn.getAttribute("data-filter");
+
+                            buttons.forEach(b => b.classList.remove("active"));
+                            btn.classList.add("active");
+
+                            tabContents.forEach(tab => {
+                                tab.style.display = (tab.getAttribute("data-cat") === filter) ? "flex" : "none";
+                            });
+
+                            updateVisiblePostStyles();
+                        });
                     });
 
-                    updateVisiblePostStyles(); // Re-apply highlight styles
-                });
-            });
+                    function resetPostStyles(post) {
+                        post.classList.remove("highlight-post");
+                        post.style.flex = "";
+                        post.style.borderBottom = "";
 
-            function resetPostStyles(post) {
-                post.classList.remove('highlight-post');
-                post.style.flex = '';
-                post.style.borderBottom = '';
-
-                const excerpt = post.querySelector('.hst-post-excerpt');
-                const thumb = post.querySelector('.hst-post-thumbg');
-                if (excerpt) excerpt.style.marginBottom = '';
-                if (thumb) {
-                    thumb.style.maxWidth = '';
-                    thumb.style.height = '';
-                }
-            }
-
-            function updateVisiblePostStyles() {
-                // Reset all posts
-                const allPosts = container.querySelectorAll('.hst-post');
-                allPosts.forEach(resetPostStyles);
-
-                // Find the currently visible tab-content
-                tabContents.forEach(tab => {
-                    if (tab.style.display === 'flex') {
-                        const posts = tab.querySelectorAll('.hst-post');
-
-                        // Add highlight to first 2
-                        posts.forEach((post, index) => {
-                            if (index < 2) {
-                                post.classList.add('highlight-post');
-                            }
-                        });
-
-                        if (posts.length === 1) {
-                            const post = posts[0];
-                            post.style.flex = '100%';
-                            post.style.borderBottom = 'none';
-                            const excerpt = post.querySelector('.hst-post-excerpt');
-                            const thumb = post.querySelector('.hst-post-thumbg');
-                            if (excerpt) excerpt.style.marginBottom = '0';
-                            if (thumb) {
-                                thumb.style.maxWidth = '100%';
-                                thumb.style.height = '100%';
-                            }
-                        }
-
-                        if (posts.length === 2) {
-                            posts.forEach(p => {
-                                p.style.borderBottom = 'none';
-                                const excerpt = p.querySelector('.hst-post-excerpt');
-                                if (excerpt) excerpt.style.marginBottom = '0';
-                            });
+                        const excerpt = post.querySelector(".hst-post-excerpt");
+                        const thumb = post.querySelector(".hst-post-thumbg");
+                        if (excerpt) excerpt.style.marginBottom = "";
+                        if (thumb) {
+                            thumb.style.maxWidth = "";
+                            thumb.style.height = "";
                         }
                     }
+
+                    function updateVisiblePostStyles() {
+                        // Reset all posts
+                        const allPosts = container.querySelectorAll(".hst-post");
+                        allPosts.forEach(resetPostStyles);
+
+                        // Find the currently visible tab-content
+                        tabContents.forEach(tab => {
+                            if (tab.style.display === "flex") {
+                                const posts = tab.querySelectorAll(".hst-post");
+
+                                // Add highlight to first 2
+                                posts.forEach((post, index) => {
+                                    if (index < 2) {
+                                        post.classList.add("highlight-post");
+                                    }
+                                });
+
+                                if (posts.length === 1) {
+                                    const post = posts[0];
+                                    post.style.flex = "100%";
+                                    post.style.borderBottom = "none";
+                                    const excerpt = post.querySelector(".hst-post-excerpt");
+                                    const thumb = post.querySelector(".hst-post-thumbg");
+                                    if (excerpt) excerpt.style.marginBottom = "0";
+                                    if (thumb) {
+                                        thumb.style.maxWidth = "100%";
+                                        thumb.style.height = "100%";
+                                    }
+                                }
+
+                                if (posts.length === 2) {
+                                    posts.forEach(p => {
+                                        p.style.borderBottom = "none";
+                                        const excerpt = p.querySelector(".hst-post-excerpt");
+                                        if (excerpt) excerpt.style.marginBottom = "0";
+                                    });
+                                }
+                            }
+                        });
+                    }
+
+                    window.addEventListener("resize", updateVisiblePostStyles);
                 });
-            }
 
-            // Ensure 'All' tab is active by default
-            const defaultTab = container.querySelector('.hst-tab-content[data-cat="all"]');
-            if (defaultTab) {
-                defaultTab.style.display = 'flex';
-                updateVisiblePostStyles(); // Apply highlight styles on default tab
-            }
-
-            window.addEventListener('resize', updateVisiblePostStyles);
-        });
-
-        var url6 = "https://fonts.googleapis.com/css2?family={$attributes['metafontfamily']}:wght@100;200;300;400;500;600;700;800;900&display=swap";
+          
+        var url6 = "https://fonts.googleapis.com/css2?family='.$attributes['metafontfamily'].':wght@100;200;300;400;500;600;700;800;900&display=swap";
         var link6 = document.createElement("link");
         link6.href = url6;
         link6.rel = "stylesheet";
         link6.type =  "text/css";             
         document.head.appendChild(link6);
 
-        var url3 = "https://fonts.googleapis.com/css2?family={$attributes['fontfamily']}:wght@100;200;300;400;500;600;700;800;900&display=swap";
+        var url3 = "https://fonts.googleapis.com/css2?family='.$attributes['fontfamily'].':wght@100;200;300;400;500;600;700;800;900&display=swap";
         var link3 = document.createElement("link");
         link3.href = url3;
         link3.rel = "stylesheet";
         link3.type =  "text/css";             
         document.head.appendChild(link3);
         
-        var url4 = "https://fonts.googleapis.com/css2?family={$attributes['contentfontfamily']}:wght@100;200;300;400;500;600;700;800;900&display=swap";
+        var url4 = "https://fonts.googleapis.com/css2?family='.$attributes['contentfontfamily'].':wght@100;200;300;400;500;600;700;800;900&display=swap";
         var link4 = document.createElement("link");
         link4.href = url4;
         link4.rel = "stylesheet";
         link4.type =  "text/css";             
         document.head.appendChild(link4);
 
-        var url1 = "https://fonts.googleapis.com/css2?family={$attributes['postcontentfontfamily']}:wght@100;200;300;400;500;600;700;800;900&display=swap";
+        var url1 = "https://fonts.googleapis.com/css2?family='.$attributes['postcontentfontfamily'].':wght@100;200;300;400;500;600;700;800;900&display=swap";
         var link1 = document.createElement("link");
         link1.href = url1;
         link1.rel = "stylesheet";
         link1.type =  "text/css";             
         document.head.appendChild(link1);
 
-        var url5 = "https://fonts.googleapis.com/css2?family={$attributes['btnfontfamily']}:wght@100;200;300;400;500;600;700;800;900&display=swap";
+        var url5 = "https://fonts.googleapis.com/css2?family='.$attributes['btnfontfamily'].':wght@100;200;300;400;500;600;700;800;900&display=swap";
         var link5 = document.createElement("link");
         link5.href = url5;
         link5.rel = "stylesheet";
         link5.type =  "text/css";             
         document.head.appendChild(link5);
 
-    </script>
-    EOD;
+    </script>';
 
     $postbackground = '';
     if( $attributes['bg1Color'] == '' && $attributes['bg1gradientValue'] != ''){
@@ -1044,177 +1117,176 @@ function render_category_tab_block($attributes) {
     $btnborderbottom=(!empty($attributes['btnborder']['bottom'])) ? $attributes['btnborder']['bottom']['width'].' '. $attributes['btnborder']['bottom']['style'].' '. $attributes['btnborder']['bottom']['color'] : null;
     $btnborderleft=(!empty($attributes['btnborder']['left'] )) ? $attributes['btnborder']['left']['width'].' '. $attributes['btnborder']['left']['style'].' '. $attributes['btnborder']['left']['color'] : null;
 
-    $custom_style = <<<CSS
-    <style>
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-tab-content{
-            --post-gap: {$attributes['postgap']}px;
+    $custom_style = '<style>
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-tab-content{
+            --post-gap: '.$attributes['postgap'].'px;
 
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-cat-sort{
-            border: {$borderwidth} {$borderstyle} {$bordercolor};
-            border-top:{$bordertop};
-            border-right:{$borderright};
-            border-bottom:{$borderbottom};
-            border-left:{$borderleft};
-            border-radius:{$attributes['bordertopradius']} {$attributes['borderrightradius']} {$attributes['borderbottomradius']} {$attributes['borderleftradius']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-cat-sort{
+            border: '.$borderwidth.' '.$borderstyle.' '.$bordercolor.';
+            border-top:'.$bordertop.';
+            border-right:'.$borderright.';
+            border-bottom:'.$borderbottom.';
+            border-left:'.$borderleft.';
+            border-radius:'.$attributes['bordertopradius'].' '.$attributes['borderrightradius'].' '.$attributes['borderbottomradius'].' '.$attributes['borderleftradius'].';
             
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post{
-            background:{$postbackground};
-            padding: {$attributes['paddings']['top']} {$attributes['paddings']['right']} {$attributes['paddings']['bottom']} {$attributes['paddings']['left']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post{
+            background:'.$postbackground.';
+            padding: '.$attributes['paddings']['top'].' '.$attributes['paddings']['right'].' '.$attributes['paddings']['bottom'].' '.$attributes['paddings']['left'].';
 
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post:not(.highlight-post){
-            border: {$postborderwidth} {$postborderstyle} {$postbordercolor};
-            border-top:{$postbordertop};
-            border-right:{$postborderright};
-            border-bottom:{$postborderbottom};
-            border-left:{$postborderleft};
-            border-radius:{$attributes['postbordertopradius']} {$attributes['postborderrightradius']} {$attributes['postborderbottomradius']} {$attributes['postborderleftradius']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post:not(.highlight-post){
+            border: '.$postborderwidth.' '.$postborderstyle.' '.$postbordercolor.';
+            border-top:'.$postbordertop.';
+            border-right:'.$postborderright.';
+            border-bottom:'.$postborderbottom.';
+            border-left:'.$postborderleft.';
+            border-radius:'.$attributes['postbordertopradius'].' '.$attributes['postborderrightradius'].' '.$attributes['postborderbottomradius'].' '.$attributes['postborderleftradius'].';
             
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-title{
-            border: {$titleborderwidth} {$titleborderstyle} {$titlebordercolor};
-            border-top:{$titlebordertop};
-            border-right:{$titleborderright};
-            border-bottom:{$titleborderbottom};
-            border-left:{$titleborderleft};
-            border-radius:{$attributes['titlebordertopradius']} {$attributes['titleborderrightradius']} {$attributes['titleborderbottomradius']} {$attributes['titleborderleftradius']};
-            padding: {$attributes['titlepaddings']['top']} {$attributes['titlepaddings']['right']} {$attributes['titlepaddings']['bottom']} {$attributes['titlepaddings']['left']};
-            background:{$titlebackground};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-title{
+            border: '.$titleborderwidth.' '.$titleborderstyle.' '.$titlebordercolor.';
+            border-top:'.$titlebordertop.';
+            border-right:'.$titleborderright.';
+            border-bottom:'.$titleborderbottom.';
+            border-left:'.$titleborderleft.';
+            border-radius:'.$attributes['titlebordertopradius'].' '.$attributes['titleborderrightradius'].' '.$attributes['titleborderbottomradius'].' '.$attributes['titleborderleftradius'].';
+            padding: '.$attributes['titlepaddings']['top'].' '.$attributes['titlepaddings']['right'].' '.$attributes['titlepaddings']['bottom'].' '.$attributes['titlepaddings']['left'].';
+            background:'.$titlebackground.';
             
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-title h2{
-            font-family: {$attributes['contentfontfamily']};
-            font-size: {$attributes['contentfontSize']};
-            font-weight: {$attributes['contentFontWeight']};
-            text-transform:{$attributes['contentTransform']};
-            text-decoration:{$attributes['contentDecoration']};
-            line-height: {$attributes['contentLineHeight']};
-            letter-spacing: {$attributes['contentLetterSpacing']}px;
-            color:{$attributes['titleColor']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-title h2{
+            font-family: '.$attributes['contentfontfamily'].';
+            font-size: '.$attributes['contentfontSize'].';
+            font-weight: '.$attributes['contentFontWeight'].';
+            text-transform:'.$attributes['contentTransform'].';
+            text-decoration:'.$attributes['contentDecoration'].';
+            line-height: '.$attributes['contentLineHeight'].';
+            letter-spacing: '.$attributes['contentLetterSpacing'].'px;
+            color:'.$attributes['titleColor'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post{
-            border: {$posthborderwidth} {$posthborderstyle} {$posthbordercolor};
-            border-top:{$posthbordertop};
-            border-right:{$posthborderright};
-            border-bottom:{$posthborderbottom};
-            border-left:{$posthborderleft};
-            border-radius:{$attributes['posthbordertopradius']} {$attributes['posthborderrightradius']} {$attributes['posthborderbottomradius']} {$attributes['posthborderleftradius']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post{
+            border: '.$posthborderwidth.' '.$posthborderstyle.' '.$posthbordercolor.';
+            border-top:'.$posthbordertop.';
+            border-right:'.$posthborderright.';
+            border-bottom:'.$posthborderbottom.';
+            border-left:'.$posthborderleft.';
+            border-radius:'.$attributes['posthbordertopradius'].' '.$attributes['posthborderrightradius'].' '.$attributes['posthborderbottomradius'].' '.$attributes['posthborderleftradius'].';
                 
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-post-content{                            
-            padding: {$attributes['contentpaddings']['top']} {$attributes['contentpaddings']['right']} {$attributes['contentpaddings']['bottom']} {$attributes['contentpaddings']['left']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-post-content{                            
+            padding: '.$attributes['contentpaddings']['top'].' '.$attributes['contentpaddings']['right'].' '.$attributes['contentpaddings']['bottom'].' '.$attributes['contentpaddings']['left'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-title{
-            font-family: {$attributes['fontfamily']};
-            font-size: {$attributes['titlefontSize']};
-            font-weight: {$attributes['TitleFontWeight']};
-            text-transform:{$attributes['TitleTransform']};
-            text-decoration:{$attributes['TitleDecoration']};
-            line-height: {$attributes['TitleLineHeight']};
-            letter-spacing: {$attributes['TitleLetterSpacing']}px;
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-title{
+            font-family: '.$attributes['fontfamily'].';
+            font-size: '.$attributes['titlefontSize'].';
+            font-weight: '.$attributes['TitleFontWeight'].';
+            text-transform:'.$attributes['TitleTransform'].';
+            text-decoration:'.$attributes['TitleDecoration'].';
+            line-height: '.$attributes['TitleLineHeight'].';
+            letter-spacing: '.$attributes['TitleLetterSpacing'].'px;
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-category-btn .hst-btn{
-            border: {$tabborderwidth} {$tabborderstyle} {$tabbordercolor};
-            border-top:{$tabbordertop};
-            border-right:{$tabborderright};
-            border-bottom:{$tabborderbottom};
-            border-left:{$tabborderleft};
-            border-radius:{$attributes['tabbordertopradius']} {$attributes['tabborderrightradius']} {$attributes['tabborderbottomradius']} {$attributes['tabborderleftradius']};
-            padding: {$attributes['tabspaddings']['top']} {$attributes['tabspaddings']['right']} {$attributes['tabspaddings']['bottom']} {$attributes['tabspaddings']['left']};
-            font-family: {$attributes['btnfontfamily']};
-            font-size: {$attributes['btnfontSize']};
-            font-weight: {$attributes['btnFontWeight']};
-            text-transform:{$attributes['btnTransform']};
-            text-decoration:{$attributes['btnDecoration']};
-            line-height: {$attributes['btnLineHeight']};
-            letter-spacing: {$attributes['btnLetterSpacing']}px;
-            color:{$attributes['btnColor']};
-            background:{$btnbackground};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-category-btn .hst-btn{
+            border: '.$tabborderwidth.' '.$tabborderstyle.' '.$tabbordercolor.';
+            border-top:'.$tabbordertop.';
+            border-right:'.$tabborderright.';
+            border-bottom:'.$tabborderbottom.';
+            border-left:'.$tabborderleft.';
+            border-radius:'.$attributes['tabbordertopradius'].' '.$attributes['tabborderrightradius'].' '.$attributes['tabborderbottomradius'].' '.$attributes['tabborderleftradius'].';
+            padding: '.$attributes['tabspaddings']['top'].' '.$attributes['tabspaddings']['right'].' '.$attributes['tabspaddings']['bottom'].' '.$attributes['tabspaddings']['left'].';
+            font-family: '.$attributes['btnfontfamily'].';
+            font-size: '.$attributes['btnfontSize'].';
+            font-weight: '.$attributes['btnFontWeight'].';
+            text-transform:'.$attributes['btnTransform'].';
+            text-decoration:'.$attributes['btnDecoration'].';
+            line-height: '.$attributes['btnLineHeight'].';
+            letter-spacing: '.$attributes['btnLetterSpacing'].'px;
+            color:'.$attributes['btnColor'].';
+            background:'.$btnbackground.';
         
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-category-btn .hst-btn.active,
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-category-btn .hst-btn:is(:hover, :focus){
-            color:{$attributes['btnColoractive']};
-            background:{$btnbackgroundactive};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-category-btn .hst-btn.active,
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-cat-sort .hst-showcase-category-btn .hst-btn:is(:hover, :focus){
+            color:'.$attributes['btnColoractive'].';
+            background:'.$btnbackgroundactive.';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-thumbg:has(img){
-            border: {$imgborderwidth} {$imgborderstyle} {$imgbordercolor};
-            border-top:{$imgbordertop};
-            border-right:{$imgborderright};
-            border-bottom:{$imgborderbottom};
-            border-left:{$imgborderleft};
-            border-radius:{$attributes['imgbordertopradius']} {$attributes['imgborderrightradius']} {$attributes['imgborderbottomradius']} {$attributes['imgborderleftradius']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-thumbg:has(img){
+            border: '.$imgborderwidth.' '.$imgborderstyle.' '.$imgbordercolor.';
+            border-top:'.$imgbordertop.';
+            border-right:'.$imgborderright.';
+            border-bottom:'.$imgborderbottom.';
+            border-left:'.$imgborderleft.';
+            border-radius:'.$attributes['imgbordertopradius'].' '.$attributes['imgborderrightradius'].' '.$attributes['imgborderbottomradius'].' '.$attributes['imgborderleftradius'].';
             
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-category a{
-            color:{$attributes['catColor']};
-            background:{$catbackground};
-            border: {$catborderwidth} {$catborderstyle} {$catbordercolor};
-            border-top:{$catbordertop};
-            border-right:{$catborderright};
-            border-bottom:{$catborderbottom};
-            border-left:{$catborderleft};
-            border-radius:{$attributes['catbordertopradius']} {$attributes['catborderrightradius']} {$attributes['catborderbottomradius']} {$attributes['catborderleftradius']};
-            padding: {$attributes['catpaddings']['top']} {$attributes['catpaddings']['right']} {$attributes['catpaddings']['bottom']} {$attributes['catpaddings']['left']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-category a{
+            color:'.$attributes['catColor'].';
+            background:'.$catbackground.';
+            border: '.$catborderwidth.' '.$catborderstyle.' '.$catbordercolor.';
+            border-top:'.$catbordertop.';
+            border-right:'.$catborderright.';
+            border-bottom:'.$catborderbottom.';
+            border-left:'.$catborderleft.';
+            border-radius:'.$attributes['catbordertopradius'].' '.$attributes['catborderrightradius'].' '.$attributes['catborderbottomradius'].' '.$attributes['catborderleftradius'].';
+            padding: '.$attributes['catpaddings']['top'].' '.$attributes['catpaddings']['right'].' '.$attributes['catpaddings']['bottom'].' '.$attributes['catpaddings']['left'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-category a{
-            color:{$attributes['catColor']};
-            background:{$catbackground};
-            border: {$catborderwidth} {$catborderstyle} {$catbordercolor};
-            border-top:{$catbordertop};
-            border-right:{$catborderright};
-            border-bottom:{$catborderbottom};
-            border-left:{$catborderleft};
-            border-radius:{$attributes['catbordertopradius']} {$attributes['catborderrightradius']} {$attributes['catborderbottomradius']} {$attributes['catborderleftradius']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-category a{
+            color:'.$attributes['catColor'].';
+            background:'.$catbackground.';
+            border: '.$catborderwidth.' '.$catborderstyle.' '.$catbordercolor.';
+            border-top:'.$catbordertop.';
+            border-right:'.$catborderright.';
+            border-bottom:'.$catborderbottom.';
+            border-left:'.$catborderleft.';
+            border-radius:'.$attributes['catbordertopradius'].' '.$attributes['catborderrightradius'].' '.$attributes['catborderbottomradius'].' '.$attributes['catborderleftradius'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-post-content .hst-post-meta{
-            margin: {$attributes['metamargins']['top']} {$attributes['metamargins']['right']} {$attributes['metamargins']['bottom']} {$attributes['metamargins']['left']};                        
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-post-content .hst-post-meta{
+            margin: '.$attributes['metamargins']['top'].' '.$attributes['metamargins']['right'].' '.$attributes['metamargins']['bottom'].' '.$attributes['metamargins']['left'].';                        
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment) a{
-            font-family: {$attributes['metafontfamily']};
-            font-size: {$attributes['metafontSize']};
-            font-weight: {$attributes['metaFontWeight']};
-            text-transform:{$attributes['metaTransform']};
-            text-decoration:{$attributes['metaDecoration']};
-            line-height: {$attributes['metaLineHeight']};
-            letter-spacing: {$attributes['metaLetterSpacing']}px;
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment) a{
+            font-family: '.$attributes['metafontfamily'].';
+            font-size: '.$attributes['metafontSize'].';
+            font-weight: '.$attributes['metaFontWeight'].';
+            text-transform:'.$attributes['metaTransform'].';
+            text-decoration:'.$attributes['metaDecoration'].';
+            line-height: '.$attributes['metaLineHeight'].';
+            letter-spacing: '.$attributes['metaLetterSpacing'].'px;
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment) i{
-            color:{$attributes['postmetaiconColor']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment) i{
+            color:'.$attributes['postmetaiconColor'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment){
-            color:{$attributes['postmetaColor']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment){
+            color:'.$attributes['postmetaColor'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment) a:is(:hover, :focus){
-            color:{$attributes['postmetahColor']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content :is(.hst-author, .hst-date, .hst-comment) a:is(:hover, :focus){
+            color:'.$attributes['postmetahColor'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-post-content .hst-post-title{
-            color:{$attributes['posttitleColor']};
-            margin: {$attributes['posttitlemargins']['top']} {$attributes['posttitlemargins']['right']} {$attributes['posttitlemargins']['bottom']} {$attributes['posttitlemargins']['left']};                        
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post.highlight-post .hst-post-content .hst-post-title{
+            color:'.$attributes['posttitleColor'].';
+            margin: '.$attributes['posttitlemargins']['top'].' '.$attributes['posttitlemargins']['right'].' '.$attributes['posttitlemargins']['bottom'].' '.$attributes['posttitlemargins']['left'].';                        
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-title{
-            color:{$attributes['posttitleColor']};                     
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-title{
+            color:'.$attributes['posttitleColor'].';                     
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-title a:is(:hover, :focus){
-            color:{$attributes['posttitlehColor']};
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-title a:is(:hover, :focus){
+            color:'.$attributes['posttitlehColor'].';
         }
-        #{$uniqueid}.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-excerpt{
-            color:{$attributes['postcontentColor']};
-            font-family: {$attributes['postcontentfontfamily']};
-            font-size: {$attributes['postcontentfontSize']};
-            font-weight: {$attributes['postcontentFontWeight']};
-            text-transform:{$attributes['postcontentTransform']};
-            text-decoration:{$attributes['postcontentDecoration']};
-            line-height: {$attributes['postcontentLineHeight']};
-            letter-spacing: {$attributes['postcontentLetterSpacing']}px;
-            margin: {$attributes['contentmargins']['top']} {$attributes['contentmargins']['right']} {$attributes['contentmargins']['bottom']} {$attributes['contentmargins']['left']};                        
+        #'.$uniqueid.'.hst-Post-Showcase .hst-showcase-posts .hst-post .hst-post-content .hst-post-excerpt{
+            color:'.$attributes['postcontentColor'].';
+            font-family: '.$attributes['postcontentfontfamily'].';
+            font-size: '.$attributes['postcontentfontSize'].';
+            font-weight: '.$attributes['postcontentFontWeight'].';
+            text-transform:'.$attributes['postcontentTransform'].';
+            text-decoration:'.$attributes['postcontentDecoration'].';
+            line-height: '.$attributes['postcontentLineHeight'].';
+            letter-spacing: '.$attributes['postcontentLetterSpacing'].'px;
+            margin: '.$attributes['contentmargins']['top'].' '.$attributes['contentmargins']['right'].' '.$attributes['contentmargins']['bottom'].' '.$attributes['contentmargins']['left'].';                        
         }
         
-        {$customcss}
-    </style>
-    CSS;
+        '.$customcss.'
+    </style>';
+    
     // Final Output
     $output = '<div id="' . esc_attr($attributes['addid']) . '"><div class="hst-Post-Showcase ' . esc_attr($attributes['addclass']) . '" id="' . $uniqueid . '">
         <div class="hst-showcase-cat-sort">

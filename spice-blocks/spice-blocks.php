@@ -4,10 +4,10 @@
 * Plugin Name:          Spice Blocks
 * Plugin URI:           https://spiceblocks.com/
 * Description:          Spice Blocks Plugin is a block plugin that is compatible with all WordPress themes. In plugin block controls are given, that's help to develop a beautiful WordPress theme.
-* Version:              2.0.7.4
+* Version:              2.0.7.6
 * Requires at least:    5.3
 * Requires PHP:         5.2
-* Tested up to:         6.8.2
+* Tested up to:         6.9
 * Author:               Spicethemes
 * Author URI:           https://spicethemes.com
 * License:              GPLv2 or later

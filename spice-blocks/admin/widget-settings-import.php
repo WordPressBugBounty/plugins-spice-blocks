@@ -45,6 +45,11 @@ class Widget_Data {
      * @return type
      */
     public static function import_settings_page() {
+        $nonce = isset( $_POST['widget_upload_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['widget_upload_nonce'] ) ) : '';
+
+        if ( ! $nonce || ! wp_verify_nonce( $nonce, 'widget_upload_action' ) ) {
+            return new WP_Error( 'invalid_nonce', __( 'Security check failed.', 'spice-blocks' ) );
+        }
         ?>
         <div class="widget-data import-widget-settings">
             <div class="wrap">
@@ -215,44 +220,60 @@ $json[0] = file_get_contents(SPICE_BLOCKS_PLUGIN_PATH.'/demo.json');
     /**
      * Parse JSON import file and load
      */
-    public static function ajax_import_widget_data() {
-        $response = array(
-            'what' => 'widget_import_export',
-            'action' => 'import_submit'
+   public static function ajax_import_widget_data() {
+    // Verify nonce for security
+    check_ajax_referer( 'spice_import_widget_nonce', 'security' );
+
+    $response = array(
+        'what'   => 'widget_import_export',
+        'action' => 'import_submit'
+    );
+
+    // Sanitize inputs
+    $widgets = array();
+    if ( isset( $_POST['widgets'] ) && is_array( $_POST['widgets'] ) ) {
+        $widgets = array_map(
+            function( $widget_group ) {
+                return array_map( 'sanitize_text_field', (array) $widget_group );
+            },
+            (array) wp_unslash( $_POST['widgets'] ) // Sanitization immediately after unslash
         );
-
-        $widgets = $_POST['widgets'] ;
-        $import_file =  $_POST['import_file'] ;            
-
-        $json_data = file_get_contents( $import_file );
-        $json_data = json_decode( $json_data, true );
-        $sidebar_data = $json_data[0];
-        $widget_data = $json_data[1];
-        foreach ( $sidebar_data as $title => $sidebar ) {
-            $count = count( $sidebar );
-            for ( $i = 0; $i < $count; $i++ ) {
-                $widget = array( );
-                $widget['type'] = trim( substr( $sidebar[$i], 0, strrpos( $sidebar[$i], '-' ) ) );
-                $widget['type-index'] = trim( substr( $sidebar[$i], strrpos( $sidebar[$i], '-' ) + 1 ) );
-                if ( !isset( $widgets[$widget['type']][$widget['type-index']] ) ) {
-                    unset( $sidebar_data[$title][$i] );
-                }
-            }
-            $sidebar_data[$title] = array_values( $sidebar_data[$title] );
-        }
-
-        foreach ( $widgets as $widget_title => $widget_value ) {
-            foreach ( $widget_value as $widget_key => $widget_value ) {
-                $widgets[$widget_title][$widget_key] = $widget_data[$widget_title][$widget_key];
-            }
-        }
-
-        $sidebar_data = array( array_filter( $sidebar_data ), $widgets );
-        $response['id'] = ( self::parse_import_data( $sidebar_data ) ) ? true : new WP_Error( 'widget_import_submit', 'Unknown Error' );
-
-        $response = new WP_Ajax_Response( $response );
-        $response->send();
     }
+
+    $import_file = isset( $_POST['import_file'] ) ? esc_url_raw( wp_unslash( $_POST['import_file'] ) ) : '';
+
+    // Read and decode JSON
+    $json_data    = file_get_contents( $import_file );
+    $json_data    = json_decode( $json_data, true );
+    $sidebar_data = $json_data[0];
+    $widget_data  = $json_data[1];
+
+    foreach ( $sidebar_data as $title => $sidebar ) {
+        $count = count( $sidebar );
+        for ( $i = 0; $i < $count; $i++ ) {
+            $widget                = array();
+            $widget['type']        = trim( substr( $sidebar[ $i ], 0, strrpos( $sidebar[ $i ], '-' ) ) );
+            $widget['type-index']  = trim( substr( $sidebar[ $i ], strrpos( $sidebar[ $i ], '-' ) + 1 ) );
+
+            if ( ! isset( $widgets[ $widget['type'] ][ $widget['type-index'] ] ) ) {
+                unset( $sidebar_data[ $title ][ $i ] );
+            }
+        }
+        $sidebar_data[ $title ] = array_values( $sidebar_data[ $title ] );
+    }
+
+    foreach ( $widgets as $widget_title => $widget_value ) {
+        foreach ( $widget_value as $widget_key => $widget_value ) {
+            $widgets[ $widget_title ][ $widget_key ] = $widget_data[ $widget_title ][ $widget_key ];
+        }
+    }
+
+    $sidebar_data   = array( array_filter( $sidebar_data ), $widgets );
+    $response['id'] = ( self::parse_import_data( $sidebar_data ) ) ? true : new WP_Error( 'widget_import_submit', 'Unknown Error' );
+
+    $response = new WP_Ajax_Response( $response );
+    $response->send();
+}
 
     /**
      * Read uploaded JSON file
@@ -276,6 +297,14 @@ $json[0] = file_get_contents(SPICE_BLOCKS_PLUGIN_PATH.'/demo.json');
      * @return boolean
      */
     public static function upload_widget_settings_file() {
+        // Verify nonce before file upload
+        $nonce = isset( $_POST['widget_upload_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['widget_upload_nonce'] ) ) : '';
+
+        if ( ! $nonce || ! wp_verify_nonce( $nonce, 'widget_upload_action' ) ) {
+            return new WP_Error( 'invalid_nonce', __( 'Security check failed.', 'spice-blocks' ) );
+        }
+
+        wp_nonce_field( 'widget_upload_action', 'widget_upload_nonce' ); 
         if ( isset( $_FILES['widget-upload-file'] ) ) {
             add_filter( 'upload_mimes', array( __CLASS__, 'json_upload_mimes' ) );
 

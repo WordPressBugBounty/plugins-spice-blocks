@@ -1,7 +1,6 @@
 {
   "name": "spice-blocks",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "wp-scripts start",
@@ -9,18 +8,19 @@
   },
   "author": "",
   "license": "ISC",
+  "description": "",
   "devDependencies": {
-    "@wordpress/scripts": "27.8.0"
+    "@wordpress/scripts": "^30.20.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
     "@fonticonpicker/react-fonticonpicker": "^1.2.0",
     "@samuelmeuli/font-manager": "^1.4.0",
-    "@wordpress/icons": "^9.48.0",
+    "@wordpress/icons": "^10.27.0",
     "animate.css": "^4.1.1",
-    "react-compare-image": "^3.4.0",
-    "react-dnd": "^16.0.1",
-    "react-dnd-html5-backend": "^16.0.1",
+    "classnames": "^2.5.1",
+    "image-compare-viewer": "^1.6.2",
+    "react-compare-image": "^3.1.0",
+    "react-dom": "^19.1.1",
     "react-inline-script": "^1.2.0"
   }
 }

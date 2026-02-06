@@ -4,8 +4,8 @@ Contributors: spicethemes, freemius
 Tags				:	block, gutenberg-block, fse-block, block-editor, gutenberg
 Requires at least	:	5.3
 Requires PHP		:	5.2
-Tested up to 		:	6.8.2
-Stable tag 			:	2.0.7.4
+Tested up to 		:	6.9
+Stable tag 			:	2.0.7.6
 License 			:	GPLv2 or later
 License URI 		:	https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,19 +44,29 @@ Spice Blocks Plugin is a block plugin that is compatible with all WordPress them
 * Service Box
 * Social Icons
 * News Filter Posts
+* Star Rating
 
 ==== Changelog ====
 
+@Version 2.0.7.6
+* Fixed issues related to block.
+* Updated freemius directory.
+
+@Version 2.0.7.5
+* Fixed PCP plugin issues in Lite plugin.
+* Added Post Tabbed Section and Custom Slider blocks in Pro plugin.
+* Added Star Rating block in Lite plugin.
+
 @Version 2.0.7.4
-* Added News Filter Posts blocks in Lite plugin.
-* Added News Filter Posts Plus blocks in Pro plugin.
+* Added News Filter Posts block in Lite plugin.
+* Added News Filter Posts Plus block in Pro plugin.
 
 @Version 2.0.7.3
 * Enhanced the feature in the pro plugin.
 * Fixed style issues.
 
 @Version 2.0.7.2
-* Added Breadcrumbs blocks in the pro plugin.
+* Added Breadcrumbs block in the pro plugin.
 
 @Version 2.0.7.1
 * Fixed line-height issues in both Lite & Pro plugin.
