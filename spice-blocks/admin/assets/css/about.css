@@ -585,3 +585,98 @@ span.dashicon.dashicons.dashicons-admin-links {
     color:#09A223;
     display: inline-block;
 }
+.spice-block-toggle-inline {
+    margin-top: 10px;
+}
+
+.spice-inline-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.spice-inline-toggle input {
+    display: none;
+}
+
+.spice-slider {
+    width: 38px;
+    height: 18px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    transition: .3s;
+}
+
+.spice-slider::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: .3s;
+}
+
+.spice-inline-toggle input:checked + .spice-slider {
+    background: #09A223;
+}
+
+.spice-inline-toggle input:checked + .spice-slider::after {
+    transform: translateX(20px);
+}
+
+.toggle-text {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ===== Action row (Get Demo left, Toggle right) ===== */
+.spice-blocks-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Description ke baad jo elements hain unko row bana do */
+.spice-blocks-detail .spice-block-feature-btn,
+.spice-blocks-detail .spice-block-toggle-inline {
+    margin: 0;
+}
+
+/* Action row wrapper via nth-last trick */
+.spice-blocks-detail .spice-block-feature-btn {
+    align-self: flex-start;
+}
+
+/* Toggle right side */
+.spice-blocks-detail .spice-block-toggle-inline {
+    align-self: flex-end;
+    margin-top: -36px; /* aligns with button */
+}
+
+/* Button width fix */
+.spice-block-feature-btn {
+    width: auto !important;
+    display: inline-flex;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .spice-blocks-detail .spice-block-toggle-inline {
+        margin-top: 12px;
+        align-self: flex-start;
+    }
+}
+
+@media (min-width: 1025px) and  (max-width: 1600px) {
+    .spice-blocks-detail .spice-block-toggle-inline {
+        margin-top: 12px;
+        align-self: flex-start;
+    }
+
+    .spice-blocks-detail {
+    padding: 20px 30px 30px;}
+}

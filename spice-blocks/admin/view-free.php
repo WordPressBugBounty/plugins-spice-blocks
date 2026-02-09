@@ -1,3 +1,24 @@
+<?php
+function spice_blocks_toggle_button( $block_key ) {
+    $spice_blocks = get_option( 'spice_blocks_visibility', [] );
+    $status = isset( $spice_blocks[ $block_key ] ) ? (bool) $spice_blocks[ $block_key ] : true;
+    ?>
+    <div class="spice-block-toggle-inline">
+        <label class="spice-inline-toggle">
+            <input type="checkbox"
+                   class="spice-toggle"
+                   data-key="<?php echo esc_attr( $block_key ); ?>"
+                   <?php checked( $status ); ?>>
+
+            <span class="spice-slider"></span>
+            <span class="toggle-text">
+                <?php echo $status ? esc_html__('On','spice-blocks') : esc_html__('Off','spice-blocks'); ?>
+            </span>
+        </label>
+    </div>
+    <?php
+}
+?>
 <section id="spice-block-dashboard">
     <div class="spb-block-container-fluid">
          <div class="spb-block-row block-first-section">
@@ -106,6 +127,7 @@
 
                                     <p class="block-cart-description"><?php esc_html_e('Create beautiful headings that displays in a styling layout on the webpage.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/heading-veriations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'heading' ); ?>
                                 </div>
                             </div>
 
@@ -116,6 +138,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create awesome text or paragraphs that displays in a styling layout on the webpage.','spice-blocks')?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/text-editor-dvariations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'editor' ); ?>
                                 </div>
                             </div>
 
@@ -126,6 +149,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create beautiful divisions between blocks in a styling layout on the webpage.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/divider-veriations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'divider' ); ?>
                                 </div>
                             </div>
 
@@ -136,6 +160,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create colorful spacings between blocks that displays in a styling layout on the webpage.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/spacer-variations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'spacer' ); ?>
                                 </div>
                             </div>
 
@@ -146,6 +171,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Add classy buttons to your webpage that makes it even more classy.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/button-veriations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'button' ); ?>
                                 </div>
                             </div>
 
@@ -156,6 +182,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Add creative icons to your webpage in a styling layout.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/icon-variations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'icon' ); ?>
                                 </div>
                             </div>
 
@@ -166,6 +193,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Add any blocks in our mutiple sections curated in a creative way. ','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/section-variations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'section' ); ?>
                                 </div>
                             </div>
 
@@ -176,6 +204,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Upload any image to your webpage with our styling image block.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/image-variations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'image' ); ?>
                                 </div>
                             </div>
 
@@ -186,6 +215,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Display beautiful captions or quotes in your webpage with our blockquote block.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/blockquote-variations/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'blockquote' ); ?>
                                 </div>
                             </div>
 
@@ -196,6 +226,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Display beautiful captions or quotes in your webpage with our blockquote block.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="<?php echo esc_url('https://spiceblocks.com/cta-variation/');?>" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'cta' ); ?>
                                 </div>
                             </div>
 
@@ -206,6 +237,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Showcase your entire timeline from beginning to end with our stylish Timeline block.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/timeline-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'timeline' ); ?>
                                 </div>
                             </div>
 
@@ -216,6 +248,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create a stylish accordion block in your webpage displaying content in a stylish layout.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/accordion-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'accordion' ); ?>
                                 </div>
                             </div>
 
@@ -226,6 +259,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create a list of icons in your webpage with our Icon List Block.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/icon-list-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'icon_list' ); ?>
                                 </div>
                             </div>
 
@@ -236,6 +270,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create an image comparison block comparing images in a styling layout.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/image-comparison-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'img_compare' ); ?>
                                 </div>
                             </div>
 
@@ -246,6 +281,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('An image grid block displaying content in a beautiful layout on hover.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/image-gallery-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'gallery' ); ?>
                                 </div>
                             </div>
 
@@ -256,6 +292,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('An image accordion block displaying images with a zooming effect on hover.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/image-accordion-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'img_accordion' ); ?>
                                 </div>
                             </div>
 
@@ -266,6 +303,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create a progress bar in your webpage displaying your progress level.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/progress-bar-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'progress_bar' ); ?>
                                 </div>
                             </div>
 
@@ -276,6 +314,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Create an awesome service box displaying content in a styling layout on hover.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/service-box-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'service' ); ?>
                                 </div>
                             </div>
 
@@ -286,6 +325,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Add social media icons to your webpage in a styling layout.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/social-icons-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'social' ); ?>
                                 </div>
                             </div>
 
@@ -296,6 +336,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Flexible star rating block showing accurate user ratings with customization.','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/star-rating/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'star_rating' ); ?>
                                 </div>
                             </div>
 
@@ -307,6 +348,7 @@
                                     </h4>
                                     <p class="block-cart-description"><?php esc_html_e('Filter posts by tabs with default all-category view layouts','spice-blocks');?></p>
                                     <a class="spice-block-feature-btn sp-block-support-btn" href="https://spiceblocks.com/news-filter-posts-variations/" target="_blank"><?php esc_html_e('Get Demo','spice-blocks');?></a>
+                                    <?php spice_blocks_toggle_button( 'news_filter_posts' ); ?>
                                 </div>
                             </div>                
                             

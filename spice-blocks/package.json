@@ -9,18 +9,16 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "devDependencies": {
-    "@wordpress/scripts": "^30.20.0"
-  },
   "dependencies": {
     "@fonticonpicker/react-fonticonpicker": "^1.2.0",
     "@samuelmeuli/font-manager": "^1.4.0",
-    "@wordpress/icons": "^10.27.0",
+    "@wordpress/icons": "^11.6.0",
     "animate.css": "^4.1.1",
     "classnames": "^2.5.1",
-    "image-compare-viewer": "^1.6.2",
-    "react-compare-image": "^3.1.0",
-    "react-dom": "^19.1.1",
+    "react-compare-image": "^3.5.14",
     "react-inline-script": "^1.2.0"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^31.4.0"
   }
 }

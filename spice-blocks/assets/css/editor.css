@@ -4225,3 +4225,9 @@ body .spice-blocks-line-height select.components-unit-control__select{
 .spice-blocks-category-button.components-tools-panel .components-tools-panel-item{
   margin-top:0;
 }
+.wp-block-missing .spice-block-plus-preloader{
+  position: relative !important;
+}
+.block-editor-list-view-block__contents-cell .dashicon{
+  color: #09a223;
+}

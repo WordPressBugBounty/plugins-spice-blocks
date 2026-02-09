@@ -5,7 +5,7 @@ Tags				:	block, gutenberg-block, fse-block, block-editor, gutenberg
 Requires at least	:	5.3
 Requires PHP		:	5.2
 Tested up to 		:	6.9
-Stable tag 			:	2.0.7.6
+Stable tag 			:	2.0.7.7
 License 			:	GPLv2 or later
 License URI 		:	https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,10 @@ Spice Blocks Plugin is a block plugin that is compatible with all WordPress them
 * Star Rating
 
 ==== Changelog ====
+
+@Version 2.0.7.7
+* Fixed issue in Isotop Gallery block.
+* Added toggle button for enable/disable block at post editor. 
 
 @Version 2.0.7.6
 * Fixed issues related to block.

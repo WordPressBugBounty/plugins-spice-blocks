@@ -1,4 +1,20 @@
 <?php 
+add_action('wp_ajax_spice_save_block_toggle', function(){
+
+    if(!current_user_can('manage_options')) wp_die();
+
+    $key = sanitize_text_field($_POST['key']);
+    $value = ($_POST['value'] === 'true');
+
+    $data = get_option('spice_blocks_visibility', []);
+
+    $data[$key] = $value;
+
+    update_option('spice_blocks_visibility', $data);
+
+    wp_send_json_success();
+});
+
 //Options Page
 add_action( 'admin_menu', 'spice_blocks_options_page',999 );
 if(!function_exists('spice_blocks_options_page')){
@@ -94,13 +110,38 @@ final class Spice_Blocks{
             filemtime( plugin_dir_path( __FILE__ ) . 'build/free-blocks.bundle.js' ), // version
             true // in footer
         );
-         wp_localize_script(
-                'spice-blocks-free',
-                'SpiceBlocksData',
-                [
-                    'is_pro' => false,
-                ]
-            );
+        wp_localize_script(
+            'spice-blocks-free',
+            'SpiceBlocksData',
+            [
+                'is_pro' => false,
+
+                'blocks' => get_option('spice_blocks_visibility', [
+                    'heading'      => true,
+                    'editor'       => true,
+                    'divider'      => true,
+                    'spacer'       => true,
+                    'button'       => true,
+                    'icon'         => true,
+                    'section'      => true,
+                    'image'        => true,
+                    'blockquote'   => true,
+                    'cta'          => true,
+                    'timeline'     => true,
+                    'accordion'    => true,
+                    'icon_list'    => true,
+                    'img_compare'  => true,
+                    'gallery'      => true,
+                    'img_accordion'=> true,
+                    'progress_bar' => true,
+                    'service'      => true,
+                    'social'       => true,
+                    'star_rating'      => true,
+                    'news_filter_posts' => true,
+                ])
+            ]
+        );
+
     }
 
     public function register_block_assets(){
@@ -228,7 +269,14 @@ final class Spice_Blocks{
         );
         wp_localize_script('spice-blocks-editor-js','plugin',['pluginpath' => SPICE_BLOCKS_PLUGIN_URL,'plugindir' => SPICE_BLOCKS_PLUGIN_UPLOAD, 'pva_ajax_url' => admin_url( 'admin-ajax.php' ) ]);
         wp_enqueue_script('spice-blocks-editor-js');
-         
+        
+        wp_enqueue_script(
+           'spice-blocks-toggle-js',
+           SPICE_BLOCKS_PLUGIN_URL.'admin/assets/toggle.js',
+           array('jquery'),
+           wp_rand(),
+           true
+        ); 
        
         wp_enqueue_style(
            'spice-blocks-fonticonpicker-material',
